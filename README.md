@@ -7,7 +7,7 @@
 
 # Temática, productos y audencia target: 
 Una página de venta de productos y accesorios deportivos, dirigidos a una audiencia de aficionados al deporte.
-El producto princial serían los kits de canchas (redes, postes, sintas de limites, etc.) ya que son producidos in-house, mientras que los accesorios e indumentaria son de reventa  
+El producto princial serían los kits de canchas (redes, postes, sintas de limites, etc.) ya que son producidos in-house, mientras que los accesorios e indumentaria son de reventa.
 
 # WireFrames:  
                    -Home  ( https://wireframe.cc/ilHUIz )
