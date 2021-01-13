@@ -14,7 +14,7 @@ El producto princial serían los kits de canchas (redes, postes, sintas de limit
 * Detalle de producto ( https://wireframe.cc/0jpfH6 )
 * Carrito ( https://wireframe.cc/fhrzj8 )
 * Formulario registro y login ( https://wireframe.cc/wdD4Wm )
- * Catalogo ( https://wireframe.cc/XfgFUi )
+* Catalogo ( https://wireframe.cc/XfgFUi )
 
 # Referencias en tematica y estética:
 
