@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding: 15px;
     border: 1px black solid;
+    background-color: white;
 }
 
 .sub-header {
@@ -15,4 +16,5 @@
     margin-right: 5%;
     display: flex;
     justify-content: space-around;
+    background-color: white;
 }

@@ -24,8 +24,8 @@ body {
 /* Secciones Rapidas */
 
 .container01 {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     margin: 10px 5% 10px 5%;
     display: flex;
     justify-content: space-around;
@@ -38,7 +38,7 @@ body {
 }
 
 .container01 h2 {
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
     padding: 3px;
 }
@@ -51,6 +51,10 @@ body {
 
 /* Articulos Recomndados */
 
+article {    
+    box-shadow: 0px 0px 40px 1px #00000048;
+}
+
 section {
     margin: 10px 5% 10px 5%;
     color: white;
@@ -58,14 +62,17 @@ section {
 }
 
 section h2{
+    font-size: 12px;
     margin: auto;
-    background-color: black;
+    background-color: white;
+    color: black;
     margin: 0px 18% 0px 18%;
 }
 
 .container02 {
     padding: 3px;
-    background-color: black;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: space-between;
 }
@@ -91,13 +98,14 @@ section h2{
 
 .container03 {
     padding: 3px;
-    background-color: black;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: space-between;
 }
 
 .container03 div {
-    background-color: grey;
+    background-color: white;
     padding: 5px;
     text-align: start;
     width: 31%;
@@ -110,4 +118,5 @@ section h2{
 
 .container03 p {
     font-size: 10px;
+    color: black;
 }
