@@ -1,8 +1,8 @@
 {
-  "name": "TaoDeportes-Mockup",
+  "name": "taodeportes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "home.js",
   "scripts": {
     "start": "nodemon app.js"
   },
