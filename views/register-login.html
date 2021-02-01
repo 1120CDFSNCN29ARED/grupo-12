@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaoDeportes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/register-login.css">
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="logo"> 
+            <a href="/views/home.html">
+            <i class="fas fa-yin-yang"></i>TaoDeportes
+            </a>
+        </div>
+            <div class="login-cart"> 
+                <a href="/register-login">Iniciar Sesión</a>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+        <div class="sub-header">
+            <a href="#">Kits</a>
+            <a href="#">Redes</a>
+            <a href="#">Canchas</a>
+            <a href="#">Pelotas</a>
+            <a href="#">Indumentaria</a>
+            <a href="#">Accesorios</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <form action="/" method="GET">
+                <p>
+                    <label for="user-name" class="block-controller">Nombre de usuario</label>
+                    <input type="text" name="user-name" id="user-name" placeholder="Nombre de usuario"
+                        class="text-input">
+                </p>
+
+                <p>
+                    <label for="email" class="block-controller">e-mail</label>
+                    <input type="email" name="email" id="email" placeholder="e-mail" class="text-input">
+                </p>
+
+                <p class="form-buttons">
+                    <input type="submit" class="rs-form" id="submit">
+                    <input type="reset" class="rs-form" id="reset">
+                </p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
