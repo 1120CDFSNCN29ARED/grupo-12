@@ -3,11 +3,14 @@ footer{
     padding: 15px;
     padding: 5px;
     width: 100%;
+   
     
 }
 footer section{
+    line-height: 20px;
     padding: 5px;
     border: 1px solid black;
+     color: black;
 }
 footer .logo {
     display: flex;
