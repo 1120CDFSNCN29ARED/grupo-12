@@ -9,5 +9,5 @@ app.listen(3001, () => {
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/home/index.html'))
+    res.sendFile(path.join(__dirname, '/views/home.html'))
 })

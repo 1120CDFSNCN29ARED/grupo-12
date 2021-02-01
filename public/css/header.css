@@ -1,0 +1,18 @@
+.main-header {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px black solid;
+}
+
+.sub-header {
+    border-bottom: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    padding: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: space-around;
+}
