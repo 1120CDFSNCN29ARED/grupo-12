@@ -1,0 +1,113 @@
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+/* Header */
+
+.banner {
+    margin: 10px 5% 10px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width:85%;    
+    border: solid 1px black;
+}
+
+.banner i {
+    font-size: 30px;
+    margin: 20px 10px;
+}
+
+/* Secciones Rapidas */
+
+.container01 {
+    background-color: black;
+    color: white;
+    margin: 10px 5% 10px 5%;
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    align-items: flex-end;
+}
+
+.container01 div {
+    width: 30%;
+}
+
+.container01 h2 {
+    font-size: 12px;
+    text-align: center;
+    padding: 3px;
+}
+
+.container01 img {
+    width: 100%;
+    border: white 1px solid;
+    margin-bottom: 3px;
+}
+
+/* Articulos Recomndados */
+
+section {
+    margin: 10px 5% 10px 5%;
+    color: white;
+    text-align: center;
+}
+
+section h2{
+    margin: auto;
+    background-color: black;
+    margin: 0px 18% 0px 18%;
+}
+
+.container02 {
+    padding: 3px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#woman-recomended, #male-recomended, #accesories-recomended {
+    width: 32%;
+}
+
+#accesories-recomended {
+    width: 32%;
+}
+
+#accesories-recomended img{
+    height: 98%;
+}
+
+.container02 img {
+    width: 100%;
+    border: 1px solid white;
+}
+
+/* Catálogo */
+
+.container03 {
+    padding: 3px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container03 div {
+    background-color: grey;
+    padding: 5px;
+    text-align: start;
+    width: 31%;
+}
+
+.container03 img {
+    width: 100%;
+    border: 1px solid white;
+}
+
+.container03 p {
+    font-size: 10px;
+}
