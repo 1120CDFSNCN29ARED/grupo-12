@@ -1,0 +1,24 @@
+.productdetail {
+width: 100%;
+height: 100%;
+display: flex;
+}
+ .images {
+       width: 50%;
+       height: 50%;
+   }
+ .img3{
+    padding: 15px
+}
+.img3 {
+    width: 5%;
+    height: 5%;
+}
+.img1{
+     padding: 15px
+}
+
+.description{
+    
+}
+
