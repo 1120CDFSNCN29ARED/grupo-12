@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/productdetail.css">
 </head>
@@ -21,13 +20,13 @@
     <header>
         <div class="main-header">
             <div class="logo">
-                <a href="/views/home.html">
+                <a href="/">
                     <i class="fas fa-yin-yang"></i>TaoDeportes
                 </a>
             </div>
             <div class="login-cart">
-                Iniciar Sesión
-                <i class="fas fa-shopping-cart"></i>
+                <a href="/register-login">Iniciar Sesión</a>
+                <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
         <div class="sub-header">
@@ -39,34 +38,37 @@
             <a href="#">Accesorios</a>
         </div>
     </header>
-    <div class="product-detail">
+
+    <section class="prod-details">
         <div class="images">
-            <div class="img3">
-                <div><img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt"></div>
-                <div><img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt"></div>
-                <div><img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt"></div>
-            </div>
-            <div class="img1"><img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt"></div>
+            <article class="img3-wrapper">
+                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+            </article>
+            <article class="main-img">
+                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+            </article>
         </div>
-        <div>
-            <div class="description">
-                <h3>Descripcion del producto</h3> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis ullam,
-                cum
-                vitae reiciendis expedita doloremque modi, omnis quibusdam tempora asperiores quam quod. Iusto sunt ex
-                aliquid
-                magni consequatur, natus porro?
-            </div>
-            <div class="product-info">
-                <p>Remera de mujer</p>
-                <p>$1500</p>
-                <p>5% Off</p>
-                <p>Metodos de pago</p>
-                <li>MercadoPago</li>
-                <button>Comprar</button>
-                <button>Agregar al carrito</button>
-            </div>
+        <div class="details">
+            <article class="precio">
+                <h1>Remera Deportiva Azul y Naranja Talle Medio Hombre</h1>
+                <p>1234.56$</p>
+                <h2>Metodos de Pago</h2>
+                <ul>
+                    <li>Mastecard</li>
+                    <li>Debito</li>
+                    <li>Credito</li>
+                </ul>
+                <button type="submit">Comprar ahora</button>
+                <button type="submit">Agregar al carrito</button>
+            </article>
+            <article class="description">
+                <h1>Detalles del producto</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi architecto odit in! Voluptatum iusto cum nostrum neque error iste asperiores.</p>
+            </article>
         </div>
-    </div>
+    </section>
 
 
 

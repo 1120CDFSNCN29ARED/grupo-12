@@ -1,20 +1,61 @@
-.productdetail {
-    width: 100%;
-    display: flex;
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+.prod-details {    
+    margin: 20px 5% 0px 5%;
+    flex-wrap: wrap;
 }
 
 .images {
-    width: 50%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.img3{
-    padding: 15px
+.img3-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    align-self: center;
 }
 
-.img3 {
-    width: 5%;
+.img3-wrapper img {
+    border: 1px solid black;
+    margin: 1px 0px 1px 0px;
 }
 
-.img1{
-    padding: 15px
+.main-img {
+    width: 72%;
+    display: flex;
+}
+
+.main-img img{
+    width: 100%;
+    align-self: center;
+    border: 1px solid black;
+}
+
+.details {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 0px 5% 5% 5%;
+    background-color: white;
+}
+
+
+
+.precio button {
+    width: 49%;
+    font-size: 15px;
+    padding: 5px;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 3px rgb(100, 100, 100);
+    transition: background-color 500ms, color 500ms;
+}
+
+.precio button:hover {
+    background-color: black;
+    color: white;
 }
