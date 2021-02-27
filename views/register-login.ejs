@@ -18,25 +18,7 @@
 
 <body>
     <header>
-        <div class="main-header">
-            <div class="logo">
-                <a href="/">
-                    <i class="fas fa-yin-yang"></i>TaoDeportes
-                </a>
-            </div>
-            <div class="login-cart">
-                <a href="/register-login">Iniciar Sesión</a>
-                <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>    
-            </div>
-        </div>
-        <div class="sub-header">
-            <a href="#">Kits</a>
-            <a href="#">Redes</a>
-            <a href="#">Canchas</a>
-            <a href="#">Pelotas</a>
-            <a href="#">Indumentaria</a>
-            <a href="#">Accesorios</a>
-        </div>
+        <%- include('./partials/header')  %>
     </header>
 
     <main>
@@ -119,34 +101,7 @@
     </main>
 
     <footer>
-        <section class="logo">
-            <a href="/">
-                <i class="fas fa-yin-yang"></i>TaoDeportes
-            </a>
-        </section>
-        <section class="us">
-            <div>
-                <h4> Nosotros</h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-        </section>
-        <section>
-            <div class="info">
-                <h4>Informacion</h4>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum tenetur, eveniet ab corporis sequi
-                incidunt
-            </div>
-        </section>
-        <section class="contact">
-            <div>
-                <ul>
-                    <h4>Contacto</h4>
-                    <li><i class="fab fa-whatsapp"></i> 111-222-333</li>
-                    <li><i class="fab fa-facebook-square"></i> @TaoDeportes</li>
-                    <li><i class="fab fa-instagram"></i> @TaoDeportes</li>
-                </ul>
-            </div>
-        </section>
+        <%- include('./partials/footer')  %> 
     </footer>
 </body>
 

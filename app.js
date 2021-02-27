@@ -4,22 +4,22 @@ const path = require('path')
 
 app.use(express.static(path.resolve(__dirname, "./public")))
 
-app.listen(3001, () => {
-    console.log('Server is Live 3001')
+app.listen(3000, () => {
+    console.log('Server is Live 3000')
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/home.html'))
+    res.render(path.join(__dirname, '/views/home.ejs'))
 });
 
 app.get('/product', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/productdetail.html'))
+    res.render(path.join(__dirname, '/views/productdetail.ejs'))
 });
 
 app.get('/register-login', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/register-login.html'))
+    res.render(path.join(__dirname, '/views/register-login.ejs'))
 });
 
 app.get('/shopping-cart', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/shopping-cart.html'))
+    res.render(path.join(__dirname, '/views/shopping-cart.ejs'))
 });
