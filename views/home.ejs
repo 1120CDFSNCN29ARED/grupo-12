@@ -30,15 +30,15 @@
         <article class="container01">
             <div id="indumentaria-hombre">
                 <h2>Indumentaria Hombre</h2>
-                <a href="/product"><img src="/img/place-holder-male-t-shirt.jpg" alt="male t-shirt"></a>
+                <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[0].image %>" alt="male t-shirt"></a>
             </div>
             <div id="accesorios">
                 <h2>Accesorios</h2>
-                <a href="/product"><img src="/img/place-holder-accesories.jpg" alt=""></a>
+                <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[2].image %>" alt=""></a>
             </div>
             <div id="indumentaria-mujer">
                 <h2>Indumentaria Mujer</h2>
-                <a href="/product"><img src="/img/place-holder-woman-t-shirt.jpg" alt="male t-shirt"></a>
+                <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[1].image %>" alt="male t-shirt"></a>
             </div>
         </article>
 
@@ -47,15 +47,15 @@
 
             <article class="container02">
                 <div id="woman-recomended">
-                    <a href="/product"><img src="/img/place-holder-woman-t-shirt.jpg" alt="male t-shirt"></a>
-                    <a href="/product"><img src="/img/place-holder-woman-t-shirt.jpg" alt="male t-shirt"></a>
+                    <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[0].image %>" alt="male t-shirt"></a>
+                    <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[0].image %>" alt="male t-shirt"></a>
                 </div>
                 <div id="accesories-recomended">
-                    <a href="/product"><img src="/img/place-holder-accesories.jpg" alt=""></a>
+                    <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[1].image %>" alt=""></a>
                 </div>
                 <div id="male-recomended">
-                    <a href="/product"><img src="/img/place-holder-male-t-shirt.jpg" alt="male t-shirt"></a>
-                    <a href="/product"><img src="/img/place-holder-male-t-shirt.jpg" alt="male t-shirt"></a>
+                    <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[2].image %>" alt="female t-shirt"></a>
+                    <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[2].image %>" alt="female t-shirt"></a>
                 </div>
             </article>
         </section>
@@ -64,30 +64,17 @@
             <h2>Catálogo</h2>
 
             <article class="container03">
-                <div class="card01"><a href="/product"><img src="/img/place-holder-accesories.jpg" alt=""></a>
-                    <p>
-                        Remera Deportiva
-                    </p>
-                    <p>
-                        Precio: $$$$
-                    </p>
-                </div>
-                <div class="card02"><a href="/product"><img src="/img/place-holder-accesories.jpg" alt=""></a>
-                    <p>
-                        Remera Deportiva
-                    </p>
-                    <p>
-                        Precio: $$$$
-                    </p>
-                </div>
-                <div class="card03"><a href="/product"><img src="/img/place-holder-accesories.jpg" alt=""></a>
-                    <p>
-                        Remera Deportiva
-                    </p>
-                    <p>
-                        Precio: $$$$
-                    </p>
-                </div>
+                <% for(let i=0; i<products.length; i++) {%>
+                    <div>
+                        <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[i].image %> " alt="<% products[i].description %> "></a>
+                        <p>
+                            <%= products[i].name %>
+                        </p>
+                        <p>
+                            Precio: <%= products[i].price %>
+                        </p>
+                    </div>
+                <% } %>
             </article>
         </section>
     </main>

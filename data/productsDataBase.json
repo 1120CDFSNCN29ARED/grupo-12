@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Remera Deportiva Hombre",
+        "price": 1000,
+        "discount": 50,
+        "category": "indumentaria_hombre",
+        "description": "Remera generia hombre",
+        "image": "place-holder-male-t-shirt.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Remera Deportiva Mujer",
+        "price": 1000,
+        "discount": 50,
+        "category": "indumentaria_mujer",
+        "description": "Remera generia mujer",
+        "image": "place-holder-woman-t-shirt.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Accesorio Deportivo",
+        "price": 1000,
+        "discount": 50,
+        "category": "accesorios",
+        "description": "Accesorio deportivo",
+        "image": "place-holder-accesories.jpg"
+    }
+]
