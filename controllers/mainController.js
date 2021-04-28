@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path')
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
+const db = path.join(__dirname, '../database/models/index.js');
 
 const controller = {
     home: (req, res) => {
