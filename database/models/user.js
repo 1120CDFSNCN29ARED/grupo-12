@@ -2,22 +2,48 @@ const Sequelize = require('sequelize')
 const { sequelize } = require('.')
 
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'user';
+    const alias = 'User';
     const cols = {
-        user_id: {},
-        user_fullname: {},
-        user_birthdate: {},
-        user_adress: {},
-        user_gender_id: {},
-        user_email: {},
-        user_password: {}
+        user_id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
+        },
+        user_fullname: {
+            allowNull: false,
+            type: dataTypes.STRING
+        },
+        user_birthdate: {
+            type: dataTypes.DATE
+        },
+        user_adress: {
+            type: dataTypes.STRING
+        },
+        user_gender_id: {
+            type: dataTypes.INTEGER
+        },
+        user_email: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        user_password: {
+            type: dataTypes.STRING,
+            allowNull: false
+        }
     };
+
     const config = {
-        timestamps: false,
-        tableName: users
+        timestamps: false
     }
 
-    const user = sequelize.define(alias, cols, config)
+    const User = sequelize.define(alias, cols, config)
 
-    return user;
+    User.associate = (models) => {
+        User.belongsTo(models.Gender, {
+            as: "genders",
+            foreignKey: "user_gender_id",
+        })
+    }
+    
+    return User;
 }
