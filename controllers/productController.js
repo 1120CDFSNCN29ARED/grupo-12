@@ -7,5 +7,15 @@ module.exports = {
                 res.render('productdetail', {products: products, req: req});
             }
         )
+    },
+
+    buyNow: (req, res) => {
+        res.render('home')
+        console.log('buyNow')
+    },
+
+    addCart: (req, res) => {
+        console.log('addCart')
     }
+
 }

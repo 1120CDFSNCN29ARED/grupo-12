@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/productdetail.css">
+    <script src="/javascript/productdetail.js"></script>
 </head>
 
 <body>
     <header>
         <%- include('./partials/header') %>
-        <%= console.log((req.query.id)) %>
     </header>
 
     <section class="prod-details">
@@ -35,21 +35,24 @@
         </div>
         <div class="details">
             <article class="precio">
-                <h1>Remera Deportiva Azul y Naranja Talle Medio Hombre</h1>
-                <p>1234.56$</p>
+                <h1><%= products[req.query.id - 1].product_name %></h1>
+                <p><%= products[req.query.id - 1].product_price %>$</p>
                 <h2>Metodos de Pago</h2>
                 <ul>
                     <li>Mastecard</li>
                     <li>Debito</li>
                     <li>Credito</li>
                 </ul>
-                <button type="submit">Comprar ahora</button>
-                <button type="submit">Agregar al carrito</button>
+                <form action="/products/buyNow" class="<%= req.query.id %>" id="buyNow">
+                    <button type="submit">Comprar ahora</button>
+                </form>
+                <form class="<%= req.query.id %>" id="addCart" method="POST">
+                    <button type="submit">Agregar al carrito</button>
+                </form>
             </article>
             <article class="description">
                 <h1>Detalles del producto</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi architecto odit in! Voluptatum
-                    iusto cum nostrum neque error iste asperiores.</p>
+                <p><%= products[req.query.id - 1].product_description %></p>
             </article>
         </div>
     </section>
