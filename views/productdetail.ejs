@@ -19,17 +19,18 @@
 <body>
     <header>
         <%- include('./partials/header') %>
+        <%= console.log((req.query.id)) %>
     </header>
 
     <section class="prod-details">
         <div class="images">
             <article class="img3-wrapper">
-                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
-                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
-                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
             </article>
             <article class="main-img">
-                <img src="/img/place-holder-woman-t-shirt.jpg" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
             </article>
         </div>
         <div class="details">

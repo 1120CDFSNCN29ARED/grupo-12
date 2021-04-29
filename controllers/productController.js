@@ -2,6 +2,10 @@ let db = require("../database/models")
 
 module.exports = {
     detail: (req, res, next) => {
-        res.render('productdetail')
+        db.Product.findAll().then(
+            function(products) {
+                res.render('productdetail', {products: products, req: req});
+            }
+        )
     }
 }

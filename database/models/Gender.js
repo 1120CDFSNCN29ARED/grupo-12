@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
     Gender.associate = (models) => {
         Gender.hasMany(models.Product, {
             as: "products",
-            foreignKey: "id_gender",
+            foreignKey: "gender_id",
         })
     }
 
