@@ -71,6 +71,18 @@
                     </p>
 
                     <p>
+                        <label for="gender" class="block-controller">Gender</label>
+                        <select name="gender" id="gender">
+                            <% for(let i = 0; i < genders.length; i++) {%> 
+                                <option value="<%= genders[i].gender_name %>">
+                                    <%= genders[i].gender_name %>
+                                </option>
+                            <% } %> 
+
+                        </select>
+                    </p>
+
+                    <p>
                         <label for="password" class="block-controller">Contraseña</label>
                         <input type="password" name="password" id="password" class="text-input">
                     </p>

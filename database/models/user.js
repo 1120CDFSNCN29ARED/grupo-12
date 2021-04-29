@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const { sequelize } = require('.')
+const sequelize = require('.')
 
 module.exports = (sequelize, dataTypes) => {
     const alias = 'User';
@@ -20,7 +20,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
         user_gender_id: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            foreignKey: true,
         },
         user_email: {
             type: dataTypes.STRING,
@@ -30,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false
         }
-    };
+    }
 
     const config = {
         timestamps: false
@@ -40,10 +41,10 @@ module.exports = (sequelize, dataTypes) => {
 
     User.associate = (models) => {
         User.belongsTo(models.Gender, {
-            as: "genders",
+            as: "user_gender",
             foreignKey: "user_gender_id",
         })
-    }
-    
+    };
+
     return User;
 }

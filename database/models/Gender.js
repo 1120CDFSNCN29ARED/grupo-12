@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const { sequelize } = require('.')
+const sequelize = require('.')
 
 module.exports = (sequelize, dataTypes) => {
     const alias = 'Gender';
@@ -24,6 +24,13 @@ module.exports = (sequelize, dataTypes) => {
     Gender.associate = (models) => {
         Gender.hasMany(models.User, {
             as: "users",
+            foreignKey: "id_gender",
+        })
+    };
+
+    Gender.associate = (models) => {
+        Gender.hasMany(models.Product, {
+            as: "products",
             foreignKey: "id_gender",
         })
     }
