@@ -8,14 +8,4 @@ module.exports = {
             }
         )
     },
-
-    buyNow: (req, res) => {
-        res.render('home')
-        console.log('buyNow')
-    },
-
-    addCart: (req, res) => {
-        console.log('addCart')
-    }
-
 }

@@ -25,25 +25,25 @@
     <section class="prod-details">
         <div class="images">
             <article class="img3-wrapper">
-                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
-                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
-                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id].product_image %>" alt="female t-shirt">
             </article>
             <article class="main-img">
-                <img src="/img/<%= products[req.query.id - 1].product_image %>" alt="female t-shirt">
+                <img src="/img/<%= products[req.query.id].product_image %>" alt="female t-shirt">
             </article>
         </div>
         <div class="details">
             <article class="precio">
-                <h1><%= products[req.query.id - 1].product_name %></h1>
-                <p><%= products[req.query.id - 1].product_price %>$</p>
+                <h1><%= products[req.query.id].product_name %></h1>
+                <p><%= products[req.query.id].product_price %>$</p>
                 <h2>Metodos de Pago</h2>
                 <ul>
                     <li>Mastecard</li>
                     <li>Debito</li>
                     <li>Credito</li>
                 </ul>
-                <form action="/products/buyNow" class="<%= req.query.id %>" id="buyNow">
+                <form action="/api/buyNow/<%= req.query.id %> " id="buyNow">
                     <button type="submit">Comprar ahora</button>
                 </form>
                 <form class="<%= req.query.id %>" id="addCart" method="POST">
@@ -52,7 +52,7 @@
             </article>
             <article class="description">
                 <h1>Detalles del producto</h1>
-                <p><%= products[req.query.id - 1].product_description %></p>
+                <p><%= products[req.query.id].product_description %></p>
             </article>
         </div>
     </section>

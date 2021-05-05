@@ -4,11 +4,6 @@ const sequelize = require('.')
 module.exports = (sequelize, dataTypes) => {
     const alias = 'User';
     const cols = {
-        user_id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: dataTypes.INTEGER
-        },
         user_fullname: {
             allowNull: false,
             type: dataTypes.STRING

@@ -4,18 +4,14 @@ const sequelize = require('.')
 module.exports = (sequelize, dataTypes) => {
     const alias = 'Gender';
     const cols = {
-        id_gender: {
-            primaryKey: true,
-            type: dataTypes.INTEGER
-        },
-
         gender_name: {
             allowNull: false,
-            type: dataTypes.STRING
+            type: dataTypes.STRING(15)
         }
     };
 
     const config = {
+        tabelName: 'genders',
         timestamps: false
     }
 
@@ -24,16 +20,13 @@ module.exports = (sequelize, dataTypes) => {
     Gender.associate = (models) => {
         Gender.hasMany(models.User, {
             as: "users",
-            foreignKey: "id_gender",
+            foreignKey: "id",
         })
-    };
-
-    Gender.associate = (models) => {
         Gender.hasMany(models.Product, {
             as: "products",
-            foreignKey: "gender_id",
+            foreignKey: "id",
         })
-    }
+    };
 
     return Gender;
 }

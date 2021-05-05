@@ -11,22 +11,39 @@ const controller = {
         //const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
         db.Product.findAll().then(
-            function(products) {
-                res.render('home', {products: products});
+            function (products) {
+                res.render('home', { products: products });
             }
         )
-        
+
         //res.render('home', {products: products});
     },
     registerLogin: (req, res) => {
         db.Gender.findAll().then(
-            function(genders) {
-                res.render('register-login', {genders: genders});
+            function (genders) {
+                res.render('register-login', { genders: genders });
             }
         )
     },
     cart: (req, res) => {
-        res.render('shopping-cart');
+        if (req.cookies.shoppingCart) {
+            let cart = req.cookies.shoppingCart
+            let cartProducts = cart.split('-')
+            db.Product.findAll().then(
+                function (products) {
+                    console.log(cartProducts)
+                    res.render('shopping-cart', { products: products, cartProducts });
+                }
+            )
+        } else {
+            let cartProducts
+            db.Product.findAll().then(
+                function (products) {
+                    res.render('shopping-cart', { products: products, cartProducts: cartProducts });
+                }
+            )
+        }
+
     }
 }
 

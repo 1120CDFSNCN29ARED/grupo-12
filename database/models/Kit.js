@@ -2,40 +2,36 @@ const Sequelize = require('sequelize')
 const sequelize = require('.')
 
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Product';
+    const alias = 'Kit';
     const cols = {
-        product_name: {
+        kit_name: {
             allowNull: false,
             type: dataTypes.STRING(50)
         },
 
-        product_price: {
-            allowNull: false,
-            type: dataTypes.INTEGER
-        },
-
-        product_discount: {
-            type: dataTypes.INTEGER
-        },
-
-        product_description: {
-            allowNull: false,
-            type: dataTypes.STRING(200)
-        },
-
-        product_image: {
-            allowNull: false,
-            type: dataTypes.STRING(500)
-        },
-
-        product_gender_id: {
+        category_id: {
             type: dataTypes.INTEGER,
             foreignKey: true,
         },
 
-        product_category_id: {
+        product1: {
             type: dataTypes.INTEGER,
-            foreignKey: true,
+            foreignKey: true
+        },
+
+        product2: {
+            type: dataTypes.INTEGER,
+            foreignKey: true
+        },
+
+        product3: {
+            type: dataTypes.INTEGER,
+            foreignKey: true
+        },
+
+        product4: {
+            type: dataTypes.INTEGER,
+            foreignKey: true
         }
     };
 
@@ -49,11 +45,11 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = (models) => {
         Product.belongsTo(models.Category, {
             as: "product_category",
-            foreignKey: "product_category_id",
+            foreignKey: "category_id",
         })
         Product.belongsTo(models.Gender, {
             as: "product_gender",
-            foreignKey: "product_gender_id",
+            foreignKey: "gender_id",
         })
     };
 

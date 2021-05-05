@@ -4,18 +4,14 @@ const sequelize = require('.')
 module.exports = (sequelize, dataTypes) => {
     const alias = 'Category';
     const cols = {
-        id_category: {
-            primaryKey: true,
-            type: dataTypes.INTEGER
-        },
-
         category_name: {
             allowNull: false,
-            type: dataTypes.STRING
+            type: dataTypes.STRING(45)
         }
     };
 
     const config = {
+        tabelName: 'categories',
         timestamps: false
     }
 
@@ -24,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
     Category.associate = (models) => {
         Category.hasMany(models.Product, {
             as: "products",
-            foreignKey: "category_id",
+            foreignKey: "id",
         })
     }
 
