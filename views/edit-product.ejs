@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaoDeportes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <script src="/javascript/home.js"></script>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+
+
+    <form action="/api/edit/<%= req.params.id %> " method="POST">
+
+        <section class="login-form">
+
+                <h1>Editar Producto</h1>
+                <p>
+                    <label for="product_name" class="block-controller">Nombre del producto</label>
+                    <input type="text" name="product_name" id="product_name" value="<%= product.product_name %> "
+                        class="text-input">
+                </p>
+
+                <p>
+                    <label for="product_price" class="block-controller">Precio </label>
+                    <input type="number" name="product_price" id="product_price" value="<%= product.product_price %>"
+                        class="text-input">
+                </p>
+
+                <p>
+                    <label for="product_discount" class="block-controller">Descuento</label>
+                    <input type="number" name="product_discount" id="product_discount" value="<%= product.product_discount %>"
+                        class="text-input">
+                </p>
+
+                <p>
+                    <label for="product_description" class="block-controller">Descripción</label>
+                    <input type="text" name="product_description" id="product_description" value="<%= product.product_description %>"
+                        class="text-input">
+                </p>
+
+                <p>
+                    <label for="product_image" class="block-controller">Imagen</label>
+                    <input type="text" name="product_image" id="product_image" value="<%= product.product_image %>" class="text-input">
+                </p>
+
+                <p>
+                    <label for="product_gender_id" class="block-controller">Genero</label>
+                    <select name="product_gender_id" id="product_gender_id">
+                        <% for( let i=0; i < genders.length; i++ ) { %>
+                            <option value="<%= genders[i].id %>">
+                                <%= genders[i].gender_name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="product_category_id" class="block-controller">Categoria</label>
+                    <select name="product_category_id" id="product_category_id">
+                        <% for( let i=0; i < categories.length; i++ ) { %>
+                            <option value="<%= categories[i].id %>">
+                                <%= categories[i].category_name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </p>
+                <input value="Crear!" type="submit" class="rs-form" id="submit">
+                <input type="reset" class="rs-form" id="reset">
+        </section>
+    </form>
+    <form action="/api/delete/<%= req.params.id %>" method="POST">
+        <button type="submit">Borrar Producto</button>
+    </form>
+
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>
+
+</html>

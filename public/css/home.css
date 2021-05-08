@@ -51,10 +51,6 @@ body {
 
 /* Articulos Recomndados */
 
-article {    
-    box-shadow: 0px 0px 40px 1px #00000048;
-}
-
 section {
     margin: 10px 5% 10px 5%;
     color: white;
