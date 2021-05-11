@@ -27,7 +27,7 @@
 
                     <h1>Login</h1>
                     <p>
-                        <label for="user-name" class="block-controller">Nombre de usuario</label>
+                        <label for="user_fullname" class="block-controller">Nombre de usuario</label>
                         <input type="text" name="user-name" id="user-name" placeholder="Nombre de usuario"
                             class="text-input">
                     </p>
@@ -45,36 +45,36 @@
             </section>
 
             <section class="register-form">
-                <form action="/" method="GET">
+                <form action="/register-login" method="POST">
 
                     <h1>Crea una cuenta</h1>
 
                     <p>
-                        <label for="name" class="block-controller">Nombre y apellido</label>
-                        <input type="text" name="name" id="name" placeholder="Nombre y apellido" class="text-input">
+                        <label for="user_fullname" class="block-controller">Nombre y apellido</label>
+                        <input type="text" name="user_fullname" id="user_fullname" placeholder="Nombre y apellido" class="text-input">
                     </p>
 
                     <p>
-                        <label for="email" class="block-controller">E-mail</label>
-                        <input type="email" name="email" id="email02" placeholder="e-mail" class="text-input">
+                        <label for="user_email" class="block-controller">E-mail</label>
+                        <input type="user_email" name="user_email" id="email02" placeholder="e-mail" class="text-input">
                     </p>
 
                     <p>
-                        <label for="birth-date" class="block-controller">Fecha de nacimiento</label>
-                        <input type="date" name="birth-date" id="birth-date" class="text-input">
+                        <label for="user_birthdate" class="block-controller">Fecha de nacimiento</label>
+                        <input type="date" name="user_birthdate" id="user_birthdate" class="text-input">
                     </p>
 
 
                     <p>
-                        <label for="adress" class="block-controller">Domicilio</label>
-                        <input type="text" name="adress" id="adress" placeholder="Domicilio" class="text-input">
+                        <label for="user_adress" class="block-controller">Domicilio</label>
+                        <input type="text" name="user_adress" id="user_adress" placeholder="Domicilio" class="text-input">
                     </p>
 
                     <p>
-                        <label for="gender" class="block-controller">Gender</label>
-                        <select name="gender" id="gender">
+                        <label for="user_gender_id" class="block-controller">Gender</label>
+                        <select name="user_gender_id" id="user_gender_id">
                             <% for(let i = 0; i < genders.length; i++) {%> 
-                                <option value="<%= genders[i].gender_name %>">
+                                <option value="<%= genders[i].id %>">
                                     <%= genders[i].gender_name %>
                                 </option>
                             <% } %> 
@@ -83,8 +83,8 @@
                     </p>
 
                     <p>
-                        <label for="password" class="block-controller">Contraseña</label>
-                        <input type="password" name="password" id="password" class="text-input">
+                        <label for="user_password" class="block-controller">Contraseña</label>
+                        <input type="password" name="user_password" id="user_password" class="text-input">
                     </p>
 
 

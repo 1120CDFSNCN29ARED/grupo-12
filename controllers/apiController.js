@@ -17,17 +17,19 @@ const controller = {
     },
 
     saveProduct: (req, res) => {
-        console.log('Save Product')
+        console.log(req.file)
         db.Product.create({
             product_name: req.body.product_name,
             product_price: req.body.product_price,
             product_discount: req.body.product_discount,
             product_description: req.body.product_description,
-            product_image: req.body.product_image,
+            product_image: req.file.filename,
             product_gender_id: req.body.product_gender_id,
             product_category_id: req.body.product_category_id,
-        });
-        res.redirect('/product/list')
+        }).then(
+            res.redirect('/product/list')
+        );
+        
     },
 
     editProduct: (req, res) => {
@@ -47,7 +49,7 @@ const controller = {
             product_price: req.body.product_price,
             product_discount: req.body.product_discount,
             product_description: req.body.product_description,
-            product_image: req.body.product_image,
+            product_image: req.file.filename,
             product_gender_id: req.body.product_gender_id,
             product_category_id: req.body.product_category_id,
         }, {
@@ -61,14 +63,15 @@ const controller = {
         
     },
 
-    delete: (req, res) => {
+    deleteProduct: (req, res) => {
         console.log('delete')
         db.Product.destroy({
             where: {
                 id: req.params.id
             }
-        })
-        res.redirect('/product/list')
+        }).then(
+            res.redirect('/product/list')
+        )
     },
 
     buyNow: (req, res) => {
