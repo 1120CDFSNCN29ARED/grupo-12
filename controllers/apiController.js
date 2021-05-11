@@ -27,7 +27,7 @@ const controller = {
             product_gender_id: req.body.product_gender_id,
             product_category_id: req.body.product_category_id,
         });
-        res.redirect('/')
+        res.redirect('/product/list')
     },
 
     editProduct: (req, res) => {

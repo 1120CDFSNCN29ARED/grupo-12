@@ -22,8 +22,10 @@
         <%- include('./partials/header') %>
     </header>
 
+    <%= typeof msg != 'undefined' ? msg: '' %>
 
-    <form action="/api/create" method="POST">
+
+    <form action="/api/create" method="POST" enctype="miltipart/form-data">
 
         <section class="login-form">
 
@@ -54,7 +56,7 @@
 
                 <p>
                     <label for="product_image" class="block-controller">Imagen</label>
-                    <input type="text" name="product_image" id="product_image" placeholder="Imagen" class="text-input">
+                    <input type="file" name="product_image" id="product_image" placeholder="Imagen" class="text-input">
                 </p>
 
                 <p>
