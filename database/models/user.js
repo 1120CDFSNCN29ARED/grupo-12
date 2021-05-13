@@ -4,29 +4,33 @@ const sequelize = require('.')
 module.exports = (sequelize, dataTypes) => {
     const alias = 'User';
     const cols = {
-        user_fullname: {
-            allowNull: false,
-            type: dataTypes.STRING
-        },
-        user_birthdate: {
-            type: dataTypes.DATE
-        },
-        user_adress: {
-            type: dataTypes.STRING
-        },
-        user_gender_id: {
-            type: dataTypes.INTEGER,
-            foreignKey: true,
-        },
-        user_email: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        user_password: {
-            type: dataTypes.STRING,
-            allowNull: false
-        }
-    }
+      user_fullname: {
+        allowNull: false,
+        type: dataTypes.STRING,
+      },
+      user_birthdate: {
+        type: dataTypes.DATE,
+      },
+      profile_image: {
+        allowNull: false,
+        type: dataTypes.STRING(500),
+      },
+      user_adress: {
+        type: dataTypes.STRING,
+      },
+      user_gender_id: {
+        type: dataTypes.INTEGER,
+        foreignKey: true,
+      },
+      user_email: {
+        type: dataTypes.STRING,
+        allowNull: false,
+      },
+      user_password: {
+        type: dataTypes.STRING,
+        allowNull: false,
+      },
+    };
 
     const config = {
         timestamps: false
