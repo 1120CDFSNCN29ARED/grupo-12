@@ -35,10 +35,10 @@
                     </a>
                     <img src="/img/<%= products[i].product_image %>" alt="">
                     <div class="product-forms">
-                        <form action="/edit/<%= products[i].id %>" method="GET">
+                        <form action="/product/edit/<%= products[i].id %>" method="GET">
                             <button type="submit">--Editar--</button>
                         </form>
-                        <form action="/delete/<%= products[i].id %>" method="POST">
+                        <form action="/product/delete/<%= products[i].id %>" method="POST">
                             <button type="submit">--Borrar--</button>
                         </form>
                     </div>

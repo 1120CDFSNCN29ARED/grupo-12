@@ -37,7 +37,6 @@ module.exports = {
     },
 
     editProduct: (req, res) => {
-        console.log('AAAAAAAAAAAAAAAAAAAAAAAAA')
         let productRequest = db.Product.findByPk(req.params.id)
         let genderRequest = db.Gender.findAll();
         let categoryRequest = db.Category.findAll();
@@ -49,7 +48,6 @@ module.exports = {
     },
 
     updateProduct: (req, res) => {
-        console.log('AAAAAAAAAAAAAAAAAAAAAAAAA')
         db.Product.update({
             product_name: req.body.product_name,
             product_price: req.body.product_price,
