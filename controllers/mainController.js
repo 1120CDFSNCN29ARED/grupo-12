@@ -95,7 +95,7 @@ const controller = {
         db.User.create({
           user_fullname: req.body.user_fullname,
           user_email: req.body.user_email,
-          profile_image: req.file.filename,
+          user_profileimage: req.file.filename,
           user_birthdate: req.body.user_birthdate,
           user_adress: req.body.user_adress,
           user_gender_id: req.body.user_gender_id,

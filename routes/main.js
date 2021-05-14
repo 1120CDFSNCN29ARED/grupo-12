@@ -24,7 +24,7 @@ router.get('/control-panel', controller.controlPanel);
 const upload = multer({ storage });
 
 router.get('/register-login', controller.registerLogin);
-router.post('/register-login', upload.single('profile_image'), controller.createUser)
+router.post('/register-login', upload.single('user_profileimage'), controller.createUser)
 
 router.get('/shopping-cart', controller.cart);
 
