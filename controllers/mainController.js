@@ -93,15 +93,14 @@ const controller = {
 
     createUser: (req, res) => {
         db.User.create({
-            user_fullname: req.body.user_fullname,
-            user_email: req.body.user_email,
-            user_birthdate: req.body.user_birthdate,
-            user_adress: req.body.user_adress,
-            user_gender_id: req.body.user_gender_id,
-            user_password: bcrypt.hashSync(req.body.user_password, 10),
-        }).then(
-            res.redirect('/')
-        );
+          user_fullname: req.body.user_fullname,
+          user_email: req.body.user_email,
+          profile_image: req.file.filename,
+          user_birthdate: req.body.user_birthdate,
+          user_adress: req.body.user_adress,
+          user_gender_id: req.body.user_gender_id,
+          user_password: bcrypt.hashSync(req.body.user_password, 10),
+        }).then(res.redirect("/"));
     }
 }
 

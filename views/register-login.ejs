@@ -23,7 +23,7 @@
 
     <main>
             <section class="login-form">
-                <form action="/" method="GET">
+                <form action="/" method="GET" >
 
                     <h1>Login</h1>
                     <p>
@@ -45,7 +45,7 @@
             </section>
 
             <section class="register-form">
-                <form action="/register-login" method="POST">
+                <form action="/register-login" method="POST" enctype="multipart/form-data">
 
                     <h1>Crea una cuenta</h1>
 
@@ -58,6 +58,10 @@
                         <label for="user_email" class="block-controller">E-mail</label>
                         <input type="user_email" name="user_email" id="email02" placeholder="e-mail" class="text-input">
                     </p>
+                     <p>
+                    <label for="profile_image" class="block-controller">Imagen de perfil</label>
+                    <input type="file" name="profile_image" id="profile_image" placeholder="Imagen" class="text-input">
+                </p>
 
                     <p>
                         <label for="user_birthdate" class="block-controller">Fecha de nacimiento</label>
