@@ -31,10 +31,10 @@
                     <li>Debito</li>
                     <li>Credito</li>
                 </ul>
-                <form action="/api/buyNow/<%= req.params.id %> " id="buyNow">
+                <form action="/product/buyNow/<%= req.params.id %> " id="buyNow">
                     <button type="submit">Comprar ahora</button>
                 </form>
-                <form class="<%= req.params.id %>" id="addCart" method="POST">
+                <form action="/product/addToCart/<%= req.params.id %> " class="<%= req.params.id %>" id="addCart" method="POST">
                     <button type="submit">Agregar al carrito</button>
                 </form>
                 

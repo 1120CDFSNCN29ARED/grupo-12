@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaoDeportes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/product-list.css">
+
+    <script src="/javascript/home.js"></script>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <main>
+
+        <button><a href="/product/create">Crear producto</a></button>
+       
+        <ul class="products">
+            <% for( let i=0; i < products.length; i++ ) { %>
+
+                <li class="product-name">
+                    <a href="/product/<%=products[i].id%>">
+                        <%= products[i].product_name %>
+                    </a>
+                    <img src="/img/<%= products[i].product_image %>" alt="">
+                    <div class="product-forms">
+                        <form action="/edit/<%= products[i].id %>" method="GET">
+                            <button type="submit">--Editar--</button>
+                        </form>
+                        <form action="/delete/<%= products[i].id %>" method="POST">
+                            <button type="submit">--Borrar--</button>
+                        </form>
+                    </div>
+                </li>
+
+            <% } %>
+
+        </ul>
+    </main>
+
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>
+
+</html>

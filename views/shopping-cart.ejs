@@ -18,20 +18,32 @@
 
 <body>
     <header>
-        <%- include('./partials/header')  %> 
+        <%- include('./partials/header') %>
     </header>
 
     <main>
         <section class="shopping-cart">
             <h1>Carrito de compras</h1>
-            <% if(cartProducts) {%> 
-                <% for(let i=0; i < cartProducts.length; i++) { %>
+
+            
+            <% if (!cartProducts) { %>
+                <h2>Carrito Vacio</h2>
+            <% }else{ %>
+                <% for(let i=0; i < products.length; i++) { %>
                     <div class="product">
-                        <img src="/img/<%= products[cartProducts[i]].product_image %>" alt="male t-shirt">
+                        <img src="/img/<%= products[i].product_image %>">
                         <div class="product-details">
-                            <p class="product-name"><%= products[cartProducts[i]].product_name %></p>
-                            <p class="product-subtotal"><%= products[cartProducts[i]].product_price %>$</p>
-                            <p class="product-quantity"><i class="fas fa-chevron-left"></i>1<i class="fas fa-chevron-right"></i>
+                            <p class="product-name">
+                                <%= products[i].product_name %>
+                            </p>
+                            <p class="product-subtotal">
+                                <%= products[i].product_price %>$
+                            </p>
+                            <p class="product-quantity">
+                                <i class="fas fa-chevron-left"></i>
+                                    <%= console.log(amountOf[i]) %> 
+                                    <%= amountOf[products[i].id] %>
+                                <i class="fas fa-chevron-right"></i>
                             </p>
                         </div>
                     </div>
@@ -40,16 +52,21 @@
         </section>
 
         <section class="shopping-summary">
-            <h1>Resumen De Compras</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis odio quae exercitationem voluptas
-                expedita voluptates.</p>
-            <p>Total: $$$$.$$</p>
-            <button>Iniciar Pago</button>
+            <div>
+                <h1>Resumen De Compras</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis odio quae exercitationem voluptas
+                    expedita voluptates.</p>
+                <p>Total: $$$$.$$</p>
+
+                <form action="/product/startPayment" method="POST">
+                    <button>Iniciar Pago</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
-        <%- include('./partials/footer')  %> 
+        <%- include('./partials/footer') %>
     </footer>
 </body>
 

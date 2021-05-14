@@ -1,0 +1,42 @@
+main {
+    margin: 3% 5%
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-name {
+    width: 25%;
+    font-size: 1.25rem;
+    margin: 10px 20px;
+}
+
+.product-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-name img {
+    width: 50%;
+    height: auto;
+}
+
+.product-forms {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-forms form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-forms form button{
+    width: 100%;
+}

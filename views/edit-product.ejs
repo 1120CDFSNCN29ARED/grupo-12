@@ -23,7 +23,7 @@
     </header>
 
 
-    <form action="/api/edit/<%= req.params.id %> " enctype="multipart/form-data" method="POST">
+    <form action="/product/edit/<%= req.params.id %> " enctype="multipart/form-data" method="POST">
 
         <section class="login-form">
 
@@ -82,7 +82,7 @@
                 <input type="reset" class="rs-form" id="reset">
         </section>
     </form>
-    <form action="/api/delete/<%= req.params.id %>" method="POST">
+    <form action="/product/delete/<%= req.params.id %>" method="POST">
         <button type="submit">Borrar Producto</button>
     </form>
 

@@ -5,8 +5,11 @@ const controller = require("../controllers/mainController");
 
 router.get('/', controller.home);
 
+router.get('/control-panel', controller.controlPanel);
+
+
 router.get('/register-login', controller.registerLogin);
-router.post('/register-login', controller.createUser)
+router.post('/register-login', controller.createUser);
 
 router.get('/shopping-cart', controller.cart);
 

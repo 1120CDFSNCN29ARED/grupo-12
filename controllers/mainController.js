@@ -17,6 +17,14 @@ const controller = {
 
         //res.render('home', {products: products});
     },
+    controlPanel: (req, res) => {
+        db.Product.findAll().then(
+            function (products) {
+                res.render('control-panel', { products: products });
+            }
+        )
+
+    },
     registerLogin: (req, res) => {
         db.Gender.findAll().then(
             function (genders) {
@@ -25,25 +33,63 @@ const controller = {
         )
     },
     cart: (req, res) => {
+
+        let cart = req.cookies.shoppingCart;
+
+        function amountCounter(cartItems) {
+            var a = [], b = [], previous;
+
+            cartItems.sort();
+            for (var i = 0; i < cartItems.length; i++) {
+                if (cartItems[i] !== previous) {
+                    a.push(cartItems[i]);
+                    b.push(1);
+                } else {
+                    b[b.length - 1]++;
+                }
+                previous = cartItems[i];
+            }
+
+            return [a, b];
+        };
+
+        let cartProducts
+
         if (req.cookies.shoppingCart) {
-            let cart = req.cookies.shoppingCart
-            let cartProducts = cart.split('-')
-            db.Product.findAll().then(
+            let cartProducts = cart.split('-');
+            const amountItems = amountCounter(cartProducts);
+            db.Product.findAll({
+                where: {
+                    id: amountItems[0]
+                }
+            }).then(
                 function (products) {
-                    console.log(cartProducts)
-                    res.render('shopping-cart', { products: products, cartProducts });
+
+                    let uniqueId= amountItems[0]
+                    let idRepeats= amountItems[1]
+                    let obj = {}
+
+                    function matchingIdAmount(id, i) {
+                        obj[uniqueId[i]] = idRepeats[i];
+                        return obj;
+                    }
+
+                    let amountOf = uniqueId.map(matchingIdAmount)
+                    
+
+                    //res.send(amountOf[0])
+                    res.render('shopping-cart', { products: products, cartProducts: true, amountItems: amountItems[1], amountOf: amountOf[0] });
                 }
             )
         } else {
-            let cartProducts
             db.Product.findAll().then(
                 function (products) {
-                    res.render('shopping-cart', { products: products, cartProducts: cartProducts });
+                    res.render('shopping-cart', { products: products, cartProducts: false });
                 }
             )
         }
 
-    },    
+    },
 
     createUser: (req, res) => {
         db.User.create({

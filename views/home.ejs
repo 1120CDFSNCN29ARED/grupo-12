@@ -31,21 +31,21 @@
 
         <article class="container01">
             <div id="indumentaria-hombre">
-                <h2>Indumentaria Hombre</h2>
+                <h2 class="section-title">Indumentaria Hombre</h2>
                 <a href="/product/<%= products[0].id %>"><img src="/img/<%= products[0].product_image %>" alt="male t-shirt"></a>
             </div>
             <div id="accesorios">
-                <h2>Accesorios</h2>
+                <h2  class="section-title">Accesorios</h2>
                 <a href="/product/<%= products[1].id %>"><img src="/img/<%= products[1].product_image %>" alt=""></a>
             </div>
             <div id="indumentaria-mujer">
-                <h2>Indumentaria Mujer</h2>
+                <h2  class="section-title">Indumentaria Mujer</h2>
                 <a href="/product/<%= products[2].id %>"><img src="/img/<%= products[2].product_image %>" alt="male t-shirt"></a>
             </div>
         </article>
 
         <section>
-            <h2>Articulos recomendados</h2>
+            <h2 class="section-title">Articulos recomendados</h2>
 
             <article class="container02">
                 <div id="woman-recomended">
@@ -63,7 +63,7 @@
         </section>
 
         <section>
-            <h2>Catálogo</h2>
+            <h2 class="section-title">Catálogo</h2>
 
             <article class="container03">
                 <% for(let i=0; i<3; i++) {%>
@@ -73,7 +73,7 @@
                             <%= products[i].product_name %>
                         </p>
                         <p>
-                            Precio: <%= products[i].product_price %>
+                            Precio: <%= products[i].product_price %>$
                         </p>
                     </div>
                 <% } %>
@@ -86,7 +86,7 @@
                             <%= products[i].product_name %>
                         </p>
                         <p>
-                            Precio: <%= products[i].product_price %>
+                            Precio: <%= products[i].product_price %>$
                         </p>
                     </div>
                 <% } %>

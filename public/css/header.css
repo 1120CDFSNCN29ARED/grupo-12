@@ -3,11 +3,52 @@ header {
     top: 0;
 }
 
+.logo i {
+    font-size: 20px;
+}
+
+
+@-webkit-keyframes logo /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes logo {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .logo i {
+    -webkit-animation: logo 2s linear infinite;
+    -moz-animation: logo 2s linear infinite;
+    -ms-animation: logo 2s linear infinite;
+    -o-animation: logo 2s linear infinite;
+    animation: logo 2s linear infinite;
+  }
+
 .main-header {
     font-size: 18px;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 15px 5%;
     border: 1px black solid;
     background-color: white;
 }
