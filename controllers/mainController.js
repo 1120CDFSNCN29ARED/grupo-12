@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path')
-
 const bcrypt = require('bcrypt')
-
 const db = require('../database/models/index.js');
+const {validationResult} = require("express-validator")
 
 const controller = {
     home: (req, res) => {
@@ -28,9 +27,19 @@ const controller = {
     registerLogin: (req, res) => {
         db.Gender.findAll().then(
             function (genders) {
-                res.render('register-login', { genders: genders });
+                res.render('register-login', { genders: genders , results : false});
             }
         )
+    },
+    checkLogin: (req,res) => {
+        db.Gender.findAll().then(function (genders) {
+         let results = validationResult(req)
+        if(results.isEmpty()){
+            res.redirect("/")
+        }else {
+       res.render("register-login" , {results : results , genders : genders})
+        }
+        });    
     },
     cart: (req, res) => {
 
