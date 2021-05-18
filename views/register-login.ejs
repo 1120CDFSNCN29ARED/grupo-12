@@ -23,18 +23,26 @@
 
     <main>
             <section class="login-form">
-                <form action="/" method="GET" >
+                                
+                <form action="/checkLogin" method="POST">
 
                     <h1>Login</h1>
-                    <p>
-                        <label for="user_fullname" class="block-controller">Nombre de usuario</label>
-                        <input type="text" name="user-name" id="user-name" placeholder="Nombre de usuario"
-                            class="text-input">
-                    </p>
+                     <% if(results){ %> 
+                    <ul> <% for(let i = 0 ;i<results.errors.length ; i++){ %> 
+                        <li><%=results.errors[i].msg %> </li>
+                        <% } %>
+                     </ul>
+                   <% } %>
+
 
                     <p>
                         <label for="email" class="block-controller">e-mail</label>
                         <input type="email" name="email" id="email" placeholder="e-mail" class="text-input">
+                    </p>
+
+                    <p>
+                        <label for="user_password" class="block-controller">Contraseña</label>
+                        <input type="password" name="user_password" id="user_password" placeholder="Contraseña" class="text-input">
                     </p>
 
                     <p class="form-buttons">
