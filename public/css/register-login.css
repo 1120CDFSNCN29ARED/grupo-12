@@ -151,3 +151,35 @@ main {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#errors_div {
+    width: 100%;
+}
+
+.error_message {
+    color: rgb(43, 37, 37);
+    display: none;
+}
+
+#errors {
+    display: none;
+    border: red solid 1px;
+    background-color: rgba(255, 0, 0, 0.192);
+    border-radius: 1rem;
+    padding: 2px;
+}
+

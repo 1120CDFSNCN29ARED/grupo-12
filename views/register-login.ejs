@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/register-login.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <script src="/javascript/register-login.js"></script>
 </head>
 
 <body>
@@ -26,6 +27,7 @@
                 <form action="/" method="GET" >
 
                     <h1>Login</h1>
+
                     <p>
                         <label for="user_fullname" class="block-controller">Nombre de usuario</label>
                         <input type="text" name="user-name" id="user-name" placeholder="Nombre de usuario"
@@ -44,10 +46,24 @@
                 </form>
             </section>
 
-            <section class="register-form">
+            <section class="register-form" id="register-form">
                 <form action="/register-login" method="POST" enctype="multipart/form-data">
 
                     <h1>Crea una cuenta</h1>
+
+                    <div id="errors_div">
+                        <ul id="errors">
+                            <li class="error_message" id="user_name_length">El nombre de usuario debe tener por lo menos 2 caracteres</li>
+                            <li class="error_message" id="user_email_valid">El mail ingresado es invalido</li>
+                            <li class="error_message" id="user_profileimage_valid">Ingresar imagen de perfil</li>
+                            <li class="error_message" id="user_birthdate_valid">Ingresar fecha de nacimiento</li>
+                            <li class="error_message" id="user_adress_valid">La dirección no es valida</li>
+                            <li class="error_message" id="user_gender_id_valid">Seleccionar un genero</li>
+                            <li class="error_message" id="user_password_valid0">La contraseña debe contener almenos 8 caracteres</li>
+                            <li class="error_message" id="user_password_valid1">La contraseña debe contener letras y numeros</li>
+                            <li class="error_message" id="user_password_check_valid">Debes confirmar la contraseña</li>
+                        </ul>
+                    </div>
 
                     <p>
                         <label for="user_fullname" class="block-controller">Nombre y apellido</label>
@@ -56,7 +72,7 @@
 
                     <p>
                         <label for="user_email" class="block-controller">E-mail</label>
-                        <input type="user_email" name="user_email" id="email02" placeholder="e-mail" class="text-input">
+                        <input type="email" name="user_email" id="email02" placeholder="e-mail" class="text-input">
                     </p>
                      <p>
                     <label for="user_profileimage" class="block-controller">Imagen de perfil</label>
@@ -77,6 +93,9 @@
                     <p>
                         <label for="user_gender_id" class="block-controller">Gender</label>
                         <select name="user_gender_id" id="user_gender_id">
+                            <option value=<%= null %> >
+                                
+                            </option>
                             <% for(let i = 0; i < genders.length; i++) {%> 
                                 <option value="<%= genders[i].id %>">
                                     <%= genders[i].gender_name %>
@@ -94,7 +113,7 @@
 
                     <p>
                         <label for="password-check" class="block-controller">Confirmar contraseña</label>
-                        <input type="password" name="password-check" id="password-check" class="text-input">
+                        <input type="password" name="password_check" id="password_check" class="text-input">
                     </p>
 
                     <p class="form-buttons">
