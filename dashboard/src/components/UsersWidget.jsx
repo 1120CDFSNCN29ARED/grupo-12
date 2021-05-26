@@ -24,6 +24,7 @@ function UsersWidget() {
                         return (
                             <li key={i}>
                                 <h3>{user.user_fullname}</h3>
+                                <img src={`http://localhost:3001/api/user-image/${user.id}`} width="200px" />
                             </li>
                         )
                     })

@@ -14,6 +14,8 @@ function SellsWidget() {
                 .catch(error => console.log(error, 'ERROR'));    
     }, [])
 
+    //let productsId = sells.split('-')
+
     return (
         <div>
             <h2>Soy el Sells Widget {sells.length}</h2>
@@ -24,6 +26,16 @@ function SellsWidget() {
                         return (
                             <li key={i}>
                                 <h3>{sell.products_id}</h3>
+                                {/*sell.products_id.split('-').map((prodId, i) => {
+                                    return (
+                                        <div key={i} class="sellsProdImg">
+                                            <h3>{prodId}</h3>
+                                            <img src={`http://localhost:3001/api/product-image/${prodId}`} width="100px" alt="product" />
+                                        </div>
+                                        
+                                    )
+                                })*/}
+                                
                             </li>
                         )
                     })

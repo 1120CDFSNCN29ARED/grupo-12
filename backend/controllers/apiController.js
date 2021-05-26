@@ -1,4 +1,7 @@
-let db = require("../database/models")
+const db = require("../database/models");
+const fs = require("fs")
+const path = require("path")
+let imageFilePath = path.join(__dirname, '../public/img/');
 
 const controller = {
     productsList: (req, res) => {
@@ -13,8 +16,18 @@ const controller = {
         )
     },
 
+    productImage: (req, res) => {
+        db.Product.findByPk(req.params.id, {attributes: ['product_image']}).then(
+            (productImage) => {
+                console.log(productImage.dataValues.product_image)
+                let image = fs.readFileSync(imageFilePath + productImage.dataValues.product_image)
+                res.status(200).send(image);
+            }
+        )
+    },
+
     usersList: (req, res) => {
-        db.User.findAll({attributes:['user_fullname']}).then(
+        db.User.findAll({attributes:['user_fullname', 'id']}).then(
             (users) => {
                 res.status(200).json({
                     total: users.length,
@@ -23,6 +36,16 @@ const controller = {
                 });
             }
         )
+    },
+
+    userImage: (req, res) => {
+      
+        db.User.findByPk(req.params.id, {attributes: ['user_profileimage']}).then(
+            (userImage) => {
+                let image = fs.readFileSync(imageFilePath + userImage.dataValues.user_profileimage)
+                res.status(200).send(image);
+            }
+        )  
     },
 
     categoriesList: (req, res) => {

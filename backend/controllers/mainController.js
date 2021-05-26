@@ -82,11 +82,7 @@ const controller = {
                         obj[uniqueId[i]] = idRepeats[i];
                         return obj;
                     }
-
                     let amountOf = uniqueId.map(matchingIdAmount)
-
-
-                    //res.send(amountOf[0])
                     res.render('shopping-cart', { products: products, cartProducts: true, amountItems: amountItems[1], amountOf: amountOf[0] });
                 }
             )
@@ -102,8 +98,6 @@ const controller = {
 
     createUser: (req, res) => {
         let validationErrors = validationResult(req);
-        //console.log(req.file)
-        console.log(validationErrors)
         if (validationErrors.isEmpty()) {
             console.log('User created')
             db.User.create({
