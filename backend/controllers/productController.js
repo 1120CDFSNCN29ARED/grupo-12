@@ -119,7 +119,6 @@ module.exports = {
                 products_id: cart,
                 sell_date: new Date()
             }).then(
-                console.log(cart),
                 res.redirect('/')
             )            
         }

@@ -19,7 +19,6 @@ const controller = {
     productImage: (req, res) => {
         db.Product.findByPk(req.params.id, {attributes: ['product_image']}).then(
             (productImage) => {
-                console.log(productImage.dataValues.product_image)
                 let image = fs.readFileSync(imageFilePath + productImage.dataValues.product_image)
                 res.status(200).send(image);
             }

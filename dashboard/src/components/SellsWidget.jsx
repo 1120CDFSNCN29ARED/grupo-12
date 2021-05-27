@@ -26,7 +26,7 @@ function SellsWidget() {
                         return (
                             <li key={i}>
                                 <h3>{sell.products_id}</h3>
-                                {/*sell.products_id.split('-').map((prodId, i) => {
+                                {sell.products_id.split('-').map((prodId, i) => {
                                     return (
                                         <div key={i} class="sellsProdImg">
                                             <h3>{prodId}</h3>
@@ -34,7 +34,7 @@ function SellsWidget() {
                                         </div>
                                         
                                     )
-                                })*/}
+                                })}
                                 
                             </li>
                         )

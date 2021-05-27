@@ -108,15 +108,16 @@ const controller = {
                 user_adress: req.body.user_adress,
                 user_gender_id: req.body.user_gender_id,
                 user_password: bcrypt.hashSync(req.body.user_password, 10),
-            })
-                .then(
-                    db.User.findOne({where:{user_email: req.body.user_email}})
-                        .then((user) => {
-                            console.log('asdfasfdasdfadsfasdfasdfa')
-                            res.cookie('loggedUserId', user.id)
-                            res.redirect("/")
-                        }),
-                )
+            }).then(response => { return response})
+            .then(
+                db.User.findOne({ where: { user_email: req.body.user_email } })
+                    .then((user) => {
+                        console.log(req.body.user_email)
+                        console.log(user)
+                        res.cookie('loggedUserId', user.id)
+                        res.redirect("/")
+                    }),
+            )
         }
 
         db.Gender.findAll().then(function (genders) {

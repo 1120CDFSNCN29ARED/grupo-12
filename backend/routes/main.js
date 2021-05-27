@@ -28,7 +28,7 @@ const upload = multer({ storage });
 
 router.get('/register-login',  controller.registerLogin);
 router.post('/register-login' , upload.single('user_profileimage'), validationsCreate , controller.createUser)
-router.post("/checkLogin", validationsLogin, controller.checkLogin);
+router.post('/checkLogin', validationsLogin, controller.checkLogin);
 router.get('/shopping-cart', controller.cart);
 
 module.exports = router;
