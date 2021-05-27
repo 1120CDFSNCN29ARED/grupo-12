@@ -110,7 +110,9 @@ module.exports = {
     startPayment: (req, res) => {
         let cart = req.cookies.shoppingCart;
         let loggedUserId = req.cookies.loggedUserId;
-        if (!cart) {
+        if (!loggedUserId) {
+            res.redirect('/register-login')
+        }else if(!cart){
             res.redirect('/')
         } else if (loggedUserId != ''){
             res.clearCookie('shoppingCart')

@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path')
 const bcrypt = require('bcrypt')
 const db = require('../database/models/index.js');
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
+const { usersList } = require('./apiController.js');
 
 const controller = {
     home: (req, res) => {
@@ -10,7 +11,7 @@ const controller = {
 
         db.Product.findAll().then(
             function (products) {
-                res.render('home', { products: products });
+                res.render('home', { products: products, req });
             }
         )
 
@@ -19,7 +20,7 @@ const controller = {
     controlPanel: (req, res) => {
         db.Product.findAll().then(
             function (products) {
-                res.render('control-panel', { products: products });
+                res.render('control-panel', { products: products, req });
             }
         )
 
@@ -27,17 +28,21 @@ const controller = {
     registerLogin: (req, res) => {
         db.Gender.findAll().then(
             function (genders) {
-                res.render('register-login', { genders: genders, results: false, validationErrors: false });
+                res.render('register-login', { genders: genders, results: false, validationErrors: false, req });
             }
         )
     },
     checkLogin: (req, res) => {
         db.Gender.findAll().then(function (genders) {
             let results = validationResult(req)
+            console.log(results)
             if (results.isEmpty()) {
-                res.redirect("/")
+                db.User.findOne({where:{user_email:`${req.body.email}`}}).then((user) => {
+                    res.cookie('loggedUserId', user.id, { expire: new Date() + 10 })
+                    res.redirect("/")
+                })
             } else {
-                res.render("register-login", { results: results, genders: genders })
+                res.render("register-login", { results: results, genders: genders, validationErrors: false, req })
             }
         });
     },
@@ -83,13 +88,13 @@ const controller = {
                         return obj;
                     }
                     let amountOf = uniqueId.map(matchingIdAmount)
-                    res.render('shopping-cart', { products: products, cartProducts: true, amountItems: amountItems[1], amountOf: amountOf[0] });
+                    res.render('shopping-cart', { products: products, cartProducts: true, req, amountItems: amountItems[1], amountOf: amountOf[0] });
                 }
             )
         } else {
             db.Product.findAll().then(
                 function (products) {
-                    res.render('shopping-cart', { products: products, cartProducts: false });
+                    res.render('shopping-cart', { products: products, cartProducts: false, req });
                 }
             )
         }
@@ -98,8 +103,8 @@ const controller = {
 
     createUser: (req, res) => {
         let validationErrors = validationResult(req);
+
         if (validationErrors.isEmpty()) {
-            console.log('User created')
             db.User.create({
                 user_fullname: req.body.user_fullname,
                 user_email: req.body.user_email,
@@ -108,22 +113,19 @@ const controller = {
                 user_adress: req.body.user_adress,
                 user_gender_id: req.body.user_gender_id,
                 user_password: bcrypt.hashSync(req.body.user_password, 10),
-            }).then(response => { return response})
-            .then(
-                db.User.findOne({ where: { user_email: req.body.user_email } })
-                    .then((user) => {
-                        console.log(req.body.user_email)
-                        console.log(user)
-                        res.cookie('loggedUserId', user.id)
-                        res.redirect("/")
-                    }),
+            }).then( async () => {
+                    user = await db.User.findOne({where:{user_email: req.body.user_email}})
+                    res.cookie('loggeduserId', user.id, { expire: new Date() + 10 })
+                    res.redirect('/')
+                },
             )
+        } else {
+            db.Gender.findAll().then(function (genders) {
+                res.render('register-login', { genders: genders, validationErrors: validationErrors, results: false, req })
+            });
         }
-
-        db.Gender.findAll().then(function (genders) {
-            res.render('register-login', { genders: genders, validationErrors: validationErrors, results: false })
-        });
     }
+
 }
 
 module.exports = controller;

@@ -1,12 +1,12 @@
 header {
     position: sticky;
     top: 0;
+    align-items: center;
 }
 
 .logo i {
     font-size: 20px;
 }
-
 
 @-webkit-keyframes logo /* Safari and Chrome */ {
     from {
@@ -44,6 +44,18 @@ header {
     animation: logo 2s linear infinite;
   }
 
+
+
+.profile-picture {
+  width: 50px;
+  border-radius: 100%;
+}
+
+
+.login-cart i {
+  align-self: center;
+}
+
 .main-header {
     font-size: 18px;
     display: flex;
@@ -51,6 +63,7 @@ header {
     padding: 15px 5%;
     border: 1px black solid;
     background-color: white;
+    align-items: center;
 }
 
 .sub-header {
