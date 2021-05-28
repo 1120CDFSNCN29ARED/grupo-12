@@ -32,6 +32,7 @@ CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_fullname VARCHAR (50) NOT null,
     user_birthdate DATE NOT null,
+    user_profileimage VARCHAR (500) NOT null,
     user_adress VARCHAR (100) NOT null,
     user_gender_id INT UNSIGNED NOT null,
     user_email VARCHAR (100) NOT null,
