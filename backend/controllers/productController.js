@@ -15,7 +15,7 @@ module.exports = {
         console.log('Create Product')
         db.Category.findAll().then(
             (categories) => {
-                res.render('create-product', {categories: categories})
+                res.render('create-product', {categories: categories, req: req})
             }
         )
     },
