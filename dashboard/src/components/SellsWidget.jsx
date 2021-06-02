@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import '../App.css';
 
 function SellsWidget() {
 
@@ -18,9 +19,9 @@ function SellsWidget() {
 
     return (
         <div>
-            <h2>Soy el Sells Widget {sells.length}</h2>
+            <h3>Cantidad total de ventas: {sells.length}</h3>
             <ul>
-                {sells.length === 0 && <p>Cargando...</p>}
+                {sells.length === 0 && <p>No se han realizado ventas en TaoDeportes.</p>}
                 {
                     sells.map((sell, i) => {
                         return (

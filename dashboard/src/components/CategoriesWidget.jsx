@@ -16,13 +16,13 @@ function CategoriesWidget() {
 
     return (
         <div>
-            <h2>Soy el Categories Widget {categories.length}</h2>
-            <ul>
+            <h3>Categorias totales : {categories.length}</h3>
+            <ul className="ul-prod">
                 {categories.length === 0 && <p>Cargando...</p>}
                 {
                     categories.map((category, i) => {
                         return (
-                            <li key={i}>
+                            <li className="li-cat" key={i}>
                                 <h3>{category.category_name}</h3>
                             </li>
                         )

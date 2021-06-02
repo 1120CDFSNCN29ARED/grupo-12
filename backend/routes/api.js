@@ -1,36 +1,36 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const multer = require('multer')
-const path = require('path')
+const multer = require("multer");
+const path = require("path");
 
-const controller = require('../controllers/apiController')
+const controller = require("../controllers/apiController");
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        let folder = path.join(__dirname, '../public/img');
-        cb(null, folder)
-    },
-    filename: (req, file, cb) => {
-        console.log(file)
-        let imageName = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
-        cb(null, imageName)
-    }
-})
+  destination: (req, file, cb) => {
+    let folder = path.join(__dirname, "../public/img");
+    cb(null, folder);
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    let imageName =
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname);
+    cb(null, imageName);
+  },
+});
 
 const upload = multer({ storage });
 
-router.get('/products-list', controller.productsList);
+router.get("/products-list", controller.productsList);
 
-router.get('/product-image/:id', controller.productImage);
-router.get('/user-image/:id', controller.userImage);
+router.get("/product-image/:id", controller.productImage);
+router.get("/user-image/:id", controller.userImage);
 
-router.get('/user-detail/:id', controller.userDetail)
-router.get('/product-detail/:id', controller.productDetail)
+router.get("/user-detail/:id", controller.userDetail);
+router.get("/product-detail/:id", controller.productDetail);
 
-
-router.get('/users-list', controller.usersList);
-router.get('/categories-list', controller.categoriesList);
-router.get('/sells-list', controller.sellsList)
+router.get("/users-list", controller.usersList);
+router.get("/categories-list", controller.categoriesList);
+router.get("/sells-list", controller.sellsList);
 /*
 
 
@@ -50,6 +50,5 @@ router.get('/buyNow/:id', controller.buyNow);
 router.post('/addToCart/:id', controller.addToCart)
 
 */
-
 
 module.exports = router;

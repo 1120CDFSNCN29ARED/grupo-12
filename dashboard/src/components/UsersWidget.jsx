@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import '../App.css';
 
 function UsersWidget() {
 
@@ -16,13 +17,13 @@ function UsersWidget() {
 
     return (
         <div>
-            <h2>Soy el User Widget {users.length}</h2>
-            <ul>
-                {users.length === 0 && <p>Cargando...</p>}
+            <h3>Total de usuarios registrados : {users.length}</h3>
+            <ul  className="ul-users">
+                {users.length === 0 && <p>No hay usuarios registrados.</p>}
                 {
                     users.map((user, i) => {
                         return (
-                            <li key={i}>
+                            <li  className="li-users" key={i}>
                                 <h3>{user.user_fullname}</h3>
                                 <img src={`http://localhost:3001/api/user-image/${user.id}`} width="200px" />
                             </li>
