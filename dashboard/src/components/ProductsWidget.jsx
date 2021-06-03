@@ -17,7 +17,7 @@ function ProductsWidget() {
 
     return (
         <div>
-            <h3>Total de productos: {products.length}</h3>
+            <h3 className="component-title">Total de productos: {products.length}</h3>
             <ul className="ul-prod">
                 {products.length === 0 && <p>Cargando...</p>}
                 {

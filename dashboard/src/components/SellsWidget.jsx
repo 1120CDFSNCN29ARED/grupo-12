@@ -19,9 +19,9 @@ function SellsWidget() {
 
     return (
         <div>
-            <h3>Cantidad total de ventas: {sells.length}</h3>
-            <ul>
-                {sells.length === 0 && <p>No se han realizado ventas en TaoDeportes.</p>}
+            <h3 className="component-title">Cantidad total de ventas: {sells.length}</h3>
+            <ul className="ul-prod">
+                {sells.length === 0 && <p>Cargando...</p>}
                 {
                     sells.map((sell, i) => {
                         return (

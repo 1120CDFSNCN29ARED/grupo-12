@@ -17,9 +17,9 @@ function UsersWidget() {
 
     return (
         <div>
-            <h3>Total de usuarios registrados : {users.length}</h3>
+            <h3 className="component-title">Total de usuarios registrados : {users.length}</h3>
             <ul  className="ul-users">
-                {users.length === 0 && <p>No hay usuarios registrados.</p>}
+                {users.length === 0 && <p>cargando...</p>}
                 {
                     users.map((user, i) => {
                         return (

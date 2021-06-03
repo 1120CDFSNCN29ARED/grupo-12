@@ -1,14 +1,12 @@
 import '../App.css';
-import Content from './Content'
+import ComponentBar from './ComponentBar'
 
-function App() {
-  return (
-    <div className="App">
-     <h1 className ="page-title">Dashboard - TaoDeportes</h1>
-    <Content />
-    
-        </div>
-  );
-}
+  function App() {
+    return (
+      <div className="App">
+          <ComponentBar />
+      </div>
+    );
+  }
 
 export default App;

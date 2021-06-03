@@ -16,7 +16,7 @@ function CategoriesWidget() {
 
     return (
         <div>
-            <h3>Categorias totales : {categories.length}</h3>
+            <h3 className="component-title">Categorias totales : {categories.length}</h3>
             <ul className="ul-prod">
                 {categories.length === 0 && <p>Cargando...</p>}
                 {

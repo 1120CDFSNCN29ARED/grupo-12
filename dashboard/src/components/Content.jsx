@@ -7,7 +7,6 @@ import SellsWidget from './SellsWidget'
 function Content() {
   return (
     <div >
-     <hr />
      < ProductsWidget /> 
      <hr />
      < UsersWidget />
