@@ -110,11 +110,12 @@ module.exports = {
     startPayment: (req, res) => {
         let cart = req.cookies.shoppingCart;
         let loggedUserId = req.cookies.loggedUserId;
-        if (!loggedUserId) {
-            res.redirect('/register-login')
-        }else if(!cart){
+        console.log(typeof(loggedUserId))
+        if(!cart){
+            console.log('Cart empty')
             res.redirect('/')
         } else if (loggedUserId != ''){
+            console.log(`${cart} was sold to ${loggedUserId}`)
             res.clearCookie('shoppingCart')
             db.Sell.create({
                 buyer_id: loggedUserId,

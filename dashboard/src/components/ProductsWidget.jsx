@@ -25,7 +25,7 @@ function ProductsWidget() {
                         return (
                             <li className="li-prod" key={i}>
                                 <h3>{product.product_name}</h3>
-                                <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" alt=""/>
+                                <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px"/>
                             </li>
                         )
                     })

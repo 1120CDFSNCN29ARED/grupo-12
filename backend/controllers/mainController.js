@@ -51,10 +51,10 @@ const controller = {
         let cart = req.cookies.shoppingCart;
 
         function amountCounter(cartItems) {
-            var a = [], b = [], previous;
+            let a = [], b = [], previous;
 
             cartItems.sort();
-            for (var i = 0; i < cartItems.length; i++) {
+            for (let i = 0; i < cartItems.length; i++) {
                 if (cartItems[i] !== previous) {
                     a.push(cartItems[i]);
                     b.push(1);
@@ -66,8 +66,6 @@ const controller = {
 
             return [a, b];
         };
-
-        let cartProducts
 
         if (req.cookies.shoppingCart) {
             let cartProducts = cart.split('-');
@@ -115,7 +113,7 @@ const controller = {
                 user_password: bcrypt.hashSync(req.body.user_password, 10),
             }).then( async () => {
                     user = await db.User.findOne({where:{user_email: req.body.user_email}})
-                    res.cookie('loggeduserId', user.id, { expire: new Date() + 10 })
+                    res.cookie('loggedUserId', user.id, { expire: new Date() + 10 })
                     res.redirect('/')
                 },
             )

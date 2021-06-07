@@ -7,6 +7,8 @@
    
 }
 
+
+
 .ul-users{
 text-align:center;
 } .ul-prod{
@@ -14,6 +16,8 @@ text-align:center;
 } .ul-cat {
   text-align:center;
 }
+
+
 .li-users{
   display: inline-block;
   padding: 15px;
@@ -30,6 +34,7 @@ text-align:center;
    display: inline-block;
    padding: 15px;
 }
+
 
 .comp-li{
   
@@ -58,4 +63,10 @@ text-align:center;
 }
 .component-title{
   text-align: center;
+}
+
+
+.sells-li {
+  display: flex;
+  margin: 0px 10px
 }
