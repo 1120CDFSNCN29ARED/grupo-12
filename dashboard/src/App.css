@@ -2,71 +2,70 @@
   padding: 5% 10%;
   background-color: rgb(235, 235, 235);
 }
-.page-title{
-   text-align:center;
-   
+.page-title {
+  text-align: center;
 }
 
-
-
-.ul-users{
-text-align:center;
-} .ul-prod{
-  text-align:center;
-} .ul-cat {
-  text-align:center;
+.ul-users {
+  text-align: center;
+}
+.ul-prod {
+  text-align: center;
+}
+.ul-cat {
+  text-align: center;
 }
 
-
-.li-users{
+.li-users {
   display: inline-block;
   padding: 15px;
   border: 1px black solid;
   background-color: white;
 }
-.li-prod{
+.li-prod {
   display: inline-block;
   padding: 15px;
   border: 1px black solid;
   background-color: white;
 }
-.li-cat{
-   display: inline-block;
-   padding: 15px;
-}
 
-
-.comp-li{
-  
+.li-cat {
   display: inline-block;
   padding: 15px;
-  text-align:center;
+}
+
+.comp-li {
+  display: inline-block;
+  padding: 15px;
+  text-align: center;
   text-decoration: none;
- 
 }
-.comp-li a{
- color: black;
- text-decoration:none;
- 
+.comp-li a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
 }
-.comp-ul{
+ .prod-title{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+}
+.comp-ul {
   width: 100%;
   border: 1px black solid;
   padding: 5px;
   display: inline-block;
   justify-content: space-around;
   background-color: white;
-  text-align:center;
+  text-align: center;
   font-size: 16px;
-   text-decoration: none;
-
+  text-decoration: none;
 }
-.component-title{
+.component-title {
   text-align: center;
 }
 
-
 .sells-li {
   display: flex;
-  margin: 0px 10px
+  margin: 0px 10px;
 }

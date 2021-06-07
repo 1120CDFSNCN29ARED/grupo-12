@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 
+
 function LastProductInDb(){
       const [products, setProducts] = useState([]);
       const lastProduct = products[products.length - 1]

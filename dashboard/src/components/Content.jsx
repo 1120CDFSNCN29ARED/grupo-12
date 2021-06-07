@@ -9,17 +9,17 @@ import SellsWidget from './SellsWidget'
 function Content() {
   return (
     <div >
-     < ProductsWidget /> 
-     <hr />
-     < LastProductInDb />
-     <hr />
-     < UsersWidget />
+      < ProductsWidget />
       <hr />
-     < LastUserInDb />
-     <hr />
-     < CategoriesWidget />
-     <hr />
-     < SellsWidget />
+      < LastProductInDb />
+      <hr />
+      < LastUserInDb />
+      <hr />
+      < UsersWidget />
+      <hr />
+      < CategoriesWidget />
+      <hr />
+      < SellsWidget />
     </div>
   );
 }
