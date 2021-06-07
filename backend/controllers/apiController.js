@@ -6,26 +6,10 @@ const imageFilePath = path.join(__dirname, "../public/img/");
 const controller = {
   productsList: (req, res) => {
     db.Product.findAll().then((products) => {
-      db.Category.findAll().then((categories) => {
-        const counterByCategory = () => {
-          const categoryCount = {};
-          for (category in categories) {
-            categoryCount[`${categories[category].category_name}`] = 0;
-            products.forEach((product) => {
-              if (product.product_category_id - 1 == category) {
-                categoryCount[`${categories[category].category_name}`] += 1;
-              }
-            });
-          }
-          return categoryCount;
-        };
-
-        res.status(200).json({
-          total: products.length,
-          countByCategory: counterByCategory(),
-          results: products,
-          status: 200,
-        });
+      res.status(200).json({
+        total: products.length,
+        results: products,
+        status: 200,
       });
     });
   },
@@ -42,7 +26,11 @@ const controller = {
   },
 
   usersList: (req, res) => {
-    db.User.findAll({ attributes: ["user_fullname", "id" , "user_email"] }).then((users) => {
+    db.User.findAll({ attributes: ["user_fullname", "id", "user_email"] }).then((users) => {
+      console.log(users)
+      users.forEach(user => {
+        user.dataValues.detail = `http://localhost:3001/api/user-detail/${user.id}`
+      });
       res.status(200).json({
         total: users.length,
         results: users,
@@ -95,10 +83,22 @@ const controller = {
 
   categoriesList: (req, res) => {
     db.Category.findAll().then((categories) => {
-      res.status(200).json({
-        total: categories.length,
-        results: categories,
-        status: 200,
+      db.Product.findAll().then((products) => {
+        categories.forEach(category => {
+          category.dataValues.size = 0
+          products.forEach((product, i) => {
+            if (product.product_category_id == category.id) {
+              console.log(product.product_category_id, category.id)
+              
+              category.dataValues.size += 1;
+            }
+          });
+        });
+        res.status(200).json({
+          total: categories.length,
+          results: categories,
+          status: 200,
+        });
       });
     });
   },

@@ -112,10 +112,8 @@ module.exports = {
         let loggedUserId = req.cookies.loggedUserId;
         console.log(typeof(loggedUserId))
         if(!cart){
-            console.log('Cart empty')
             res.redirect('/')
         } else if (loggedUserId != ''){
-            console.log(`${cart} was sold to ${loggedUserId}`)
             res.clearCookie('shoppingCart')
             db.Sell.create({
                 buyer_id: loggedUserId,
