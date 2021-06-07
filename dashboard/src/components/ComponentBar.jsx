@@ -60,11 +60,11 @@ function ComponentBar() {
                  <Route path="/LastProductInDb">
                     <LastProductInDb />
                 </Route>
-                <Route path="/UsersWidget">
-                    <UsersWidget />
-                </Route>
                 <Route path="/LastUserInDb">
                     <LastUserInDb />
+                </Route>
+                <Route path="/UsersWidget">
+                    <UsersWidget />
                 </Route>
                 <Route path="/CategoriesWidget">
                     <CategoriesWidget />

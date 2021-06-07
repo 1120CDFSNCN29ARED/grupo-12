@@ -58,7 +58,7 @@ text-align:center;
   background-color: white;
   text-align:center;
   font-size: 16px;
-   text-decoration: none;
+  text-decoration: none;
 
 }
 .component-title{
@@ -68,5 +68,6 @@ text-align:center;
 
 .sells-ul {
   display: flex;
-  margin: 0px 10px
+  margin: 0px 10px;
+  justify-content: center;
 }

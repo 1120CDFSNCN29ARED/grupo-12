@@ -12,7 +12,7 @@ function CategoriesWidget() {
                     setCategories(data.results)
                 })
                 .catch(error => console.log(error, 'ERROR'));    
-    }, [])
+    }, []);
 
     return (
         <div>
@@ -20,10 +20,12 @@ function CategoriesWidget() {
             <ul className="ul-prod">
                 {categories.length === 0 && <p>Cargando...</p>}
                 {
+                    console.log(categories),
                     categories.map((category, i) => {
                         return (
                             <li className="li-cat" key={i}>
-                                <h3>{category.category_name}</h3>
+                                <h2>{`${category.category_name}`}</h2>
+                                <h3>{`tiene ${category.size} productos`}</h3>
                             </li>
                         )
                     })
