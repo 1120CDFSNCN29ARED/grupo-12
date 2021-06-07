@@ -5,6 +5,8 @@ import ProductsWidget from './ProductsWidget'
 import UsersWidget from './UsersWidget'
 import CategoriesWidget from './CategoriesWidget'
 import SellsWidget from './SellsWidget'
+import LastProductInDb from './LastProductInDb'
+import LastUserInDb from './LastUserInDb'
 import Content from './Content'
 import NotFound from './NotFound'
 
@@ -22,9 +24,19 @@ function ComponentBar() {
                         <span>Productos</span>
                     </Link>
                 </li>
+                 <li className="comp-li">
+                    <Link to="/LastProductInDb">
+                        <span>Ultimo producto </span>
+                    </Link>
+                </li>
                 <li className="comp-li">
                     <Link to="/UsersWidget">
                         <span>Usuarios</span>
+                    </Link>
+                </li>
+                 <li className="comp-li">
+                    <Link to="/LastUserInDb">
+                        <span>Ultimo usuario </span>
                     </Link>
                 </li>
                 <li className="comp-li">
@@ -45,8 +57,14 @@ function ComponentBar() {
                 <Route path="/ProductsWidget">
                     <ProductsWidget />
                 </Route>
+                 <Route path="/LastProductInDb">
+                    <LastProductInDb />
+                </Route>
                 <Route path="/UsersWidget">
                     <UsersWidget />
+                </Route>
+                <Route path="/LastUserInDb">
+                    <LastUserInDb />
                 </Route>
                 <Route path="/CategoriesWidget">
                     <CategoriesWidget />
