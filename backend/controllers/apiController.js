@@ -71,6 +71,7 @@ const controller = {
       const result = {
         id: product.id,
         name: product.product_name,
+        price: product.product_price,
         discount: product.product_discount,
         description: product.product_description,
         image: `http://localhost:3001/api/product-image/${product.id}`,

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link, Route, Switch } from 'react-router-dom';
 import '../App.css';
 
 function ProductsWidget() {
@@ -24,8 +25,10 @@ function ProductsWidget() {
                     products.map((product, i) => {
                         return (
                             <li className="li-prod" key={i}>
+                                <Link className="prod-title" to={`/ProductDetail/${product.id}`}>
                                 <h3>{product.product_name}</h3>
                                 <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px"/>
+                                </Link>
                             </li>
                         )
                     })

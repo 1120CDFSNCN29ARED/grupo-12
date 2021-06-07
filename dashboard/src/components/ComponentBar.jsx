@@ -8,6 +8,7 @@ import SellsWidget from './SellsWidget'
 import LastProductInDb from './LastProductInDb'
 import LastUserInDb from './LastUserInDb'
 import Content from './Content'
+import ProductDetail from './ProductDetail'
 import NotFound from './NotFound'
 
 function ComponentBar() {
@@ -29,13 +30,13 @@ function ComponentBar() {
                         <span>Ultimo producto </span>
                     </Link>
                 </li>
-                <li className="comp-li">
-                    <Link to="/UsersWidget">
+                 <li className="comp-li">
+                 <Link to="/UsersWidget">
                         <span>Usuarios</span>
                     </Link>
                 </li>
-                 <li className="comp-li">
-                    <Link to="/LastUserInDb">
+                <li className="comp-li">
+                <Link to="/LastUserInDb">
                         <span>Ultimo usuario </span>
                     </Link>
                 </li>
@@ -71,6 +72,9 @@ function ComponentBar() {
                 </Route>
                 <Route path="/SellsWidget">
                     <SellsWidget />
+                </Route>
+                <Route path="/ProductDetail/:id">
+                    <ProductDetail />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

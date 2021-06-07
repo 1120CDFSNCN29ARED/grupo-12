@@ -11,9 +11,11 @@ function Content() {
     <div >
       < ProductsWidget />
       <hr />
-      < UsersWidget />
+      < LastProductInDb />
       <hr />
-      < LastProductInDb /> < LastUserInDb />
+      < LastUserInDb />
+      <hr />
+      < UsersWidget />
       <hr />
       < CategoriesWidget />
       <hr />
