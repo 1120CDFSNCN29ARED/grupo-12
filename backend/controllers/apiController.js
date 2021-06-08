@@ -26,7 +26,7 @@ const controller = {
   },
 
   usersList: (req, res) => {
-    db.User.findAll({ attributes: ["user_fullname", "id", "user_email"] }).then((users) => {
+    db.User.findAll({ attributes: ["user_fullname", "id", "user_email","user_birthdate" , "user_gender_id"] }).then((users) => {
       console.log(users)
       users.forEach(user => {
         user.dataValues.detail = `http://localhost:3001/api/user-detail/${user.id}`
