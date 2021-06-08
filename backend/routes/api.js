@@ -31,24 +31,5 @@ router.get("/product-detail/:id", controller.productDetail);
 router.get("/users-list", controller.usersList);
 router.get("/categories-list", controller.categoriesList);
 router.get("/sells-list", controller.sellsList);
-/*
-
-
-router.get('/create', controller.createProduct);
-router.post('/create', upload.single('product_image'), controller.saveProduct);
-
-router.get('/edit/:id', controller.editProduct);
-router.post('/edit/:id', upload.single('product_image'), controller.updateProduct);
-
-
-
-router.get('/:id/', controller.detail);
-
-router.post('/delete/:id', controller.deleteProduct)
-
-router.get('/buyNow/:id', controller.buyNow);
-router.post('/addToCart/:id', controller.addToCart)
-
-*/
 
 module.exports = router;

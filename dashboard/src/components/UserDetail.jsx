@@ -8,9 +8,9 @@ function UserDetail() {
 
     let gender = ""
 
-    if (detail.user_gender_id = 1) {
+    if (detail.user_gender_id == 1) {
         gender = "Masculino"
-    } else if (detail.user_gender_id = 2) {
+    } else if (detail.user_gender_id == 2) {
         gender = "Femenino"
     } else {
         gender = "Unisex"
@@ -33,9 +33,9 @@ function UserDetail() {
             <div className="li-prod">
                 <h3 className="component-title">{detail.user_fullname}</h3>
                 <img src={`http://localhost:3001/api/User-image/${id}`} width="200px" height="200px" />
-                <p>Genero: {gender}</p>
                 <p>Fecha de nacimiento: {detail.user_birthdate}</p>
                 <p>Email: {detail.user_email}</p>
+                <p>Genero: {gender}</p>
             </div>
         </div>
     )
