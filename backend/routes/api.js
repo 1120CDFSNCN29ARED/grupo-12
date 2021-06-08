@@ -23,7 +23,6 @@ router.get("/products-list", controller.productsList);
 
 router.get("/product-image/:id", controller.productImage);
 router.get("/user-image/:id", controller.userImage);
-router.get("/user-image-encripted/:id", controller.userImageEncripted);
 
 router.get("/user-detail/:id", controller.userDetail);
 router.get("/product-detail/:id", controller.productDetail);
