@@ -50,27 +50,6 @@ const controller = {
     );
   },
 
-  userImageEncripted: (req, res) => {
-    console.log('-----HOLA-----');
-    db.User.findAll({ attributes: ['id'] }).then((users) => {
-      users.forEach(id => {
-        if (bcrypt.compareSync(id.dataValues.encripted_id.toString(), req.cookies.loggedUserId)) {
-          console.log('-----MATCH-----');
-          db.User.findByPk(id.dataValues.id, { attributes: ["user_profileimage"] }).then(
-            (userImage) => {
-              let image = fs.readFileSync(
-                imageFilePath + userImage.dataValues.user_profileimage
-              );
-              res.status(200).send(image);
-            }
-          );
-        }
-        console.log('-----NO MATCH-----');
-
-      });
-    })
-  },
-
   userDetail: (req, res) => {
     db.User.findByPk(req.params.id, {
       attributes: [
