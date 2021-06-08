@@ -54,7 +54,7 @@ const controller = {
     db.User.findByPk(req.params.id, {
       attributes: [
         "user_fullname",
-        "user_birthdate",
+        "user_birthdate", 
         "user_gender_id",
         "user_email",
       ],

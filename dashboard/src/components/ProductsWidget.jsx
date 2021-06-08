@@ -6,14 +6,14 @@ function ProductsWidget() {
 
     const [products, setProducts] = useState([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         fetch('http://localhost:3001/api/products-list')
-                .then(response => response.json())
-                .then(data => {
-                    //console.log(data)
-                    setProducts(data.results)
-                })
-                .catch(error => console.log(error, 'ERROR'));    
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data)
+                setProducts(data.results)
+            })
+            .catch(error => console.log(error, 'ERROR'));
     }, [])
 
     return (
@@ -26,16 +26,16 @@ function ProductsWidget() {
                         return (
                             <li className="li-prod" key={i}>
                                 <Link className="prod-title" to={`/ProductDetail/${product.id}`}>
-                                <h3>{product.product_name}</h3>
-                                <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px"/>
+                                    <h3>{product.product_name}</h3>
+                                    <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px" />
                                 </Link>
                             </li>
                         )
                     })
                 }
             </ul>
-            
-            
+
+
         </div>
     )
 

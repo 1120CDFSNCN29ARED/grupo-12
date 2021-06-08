@@ -4,11 +4,8 @@ import '../App.css';
 
 function ProductDetail() {
     const { id } = useParams()
-    console.log(id)
 
     const [detail, setDetail] = useState([]);
-    console.log(detail)
-
 
     useEffect(() => {
         fetch(`http://localhost:3001/api/product-detail/${id}`)

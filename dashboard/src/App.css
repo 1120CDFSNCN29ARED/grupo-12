@@ -1,6 +1,7 @@
 .App {
   padding: 5% 10%;
   background-color: rgb(235, 235, 235);
+  text-align: center;
 }
 .page-title {
   text-align: center;

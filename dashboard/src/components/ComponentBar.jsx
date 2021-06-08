@@ -9,6 +9,7 @@ import LastProductInDb from './LastProductInDb'
 import LastUserInDb from './LastUserInDb'
 import Content from './Content'
 import ProductDetail from './ProductDetail'
+import UserDetail from './UserDetail'
 import NotFound from './NotFound'
 
 function ComponentBar() {
@@ -25,18 +26,18 @@ function ComponentBar() {
                         <span>Productos</span>
                     </Link>
                 </li>
-                 <li className="comp-li">
+                <li className="comp-li">
                     <Link to="/LastProductInDb">
                         <span>Ultimo producto </span>
                     </Link>
                 </li>
-                 <li className="comp-li">
-                 <Link to="/UsersWidget">
+                <li className="comp-li">
+                    <Link to="/UsersWidget">
                         <span>Usuarios</span>
                     </Link>
                 </li>
                 <li className="comp-li">
-                <Link to="/LastUserInDb">
+                    <Link to="/LastUserInDb">
                         <span>Ultimo usuario </span>
                     </Link>
                 </li>
@@ -58,7 +59,7 @@ function ComponentBar() {
                 <Route path="/ProductsWidget">
                     <ProductsWidget />
                 </Route>
-                 <Route path="/LastProductInDb">
+                <Route path="/LastProductInDb">
                     <LastProductInDb />
                 </Route>
                 <Route path="/LastUserInDb">
@@ -75,6 +76,9 @@ function ComponentBar() {
                 </Route>
                 <Route path="/ProductDetail/:id">
                     <ProductDetail />
+                </Route>
+                <Route path="/UserDetail/:id">
+                    <UserDetail />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
