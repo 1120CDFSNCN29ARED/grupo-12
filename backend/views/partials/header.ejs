@@ -9,11 +9,7 @@
         <% if(req.cookies.loggedUserId == undefined) {%> 
             <a href="/register-login">Iniciar Sesión</a>
             <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>
-        <% }else if(req.cookies.loggedUserId == 'false'){ %>
-            <a href="/register-login">Iniciar Sesión</a>
-            <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>
         <% }else{ %> 
-            <% console.log(req.cookies.loggedUserId) %> 
             <a href="/register-login"><img class="profile-picture" src="http://localhost:3001/api/user-image/<%= req.cookies.loggedUserId %>" alt="Iniciar Sesión"></a>  
             <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a width="50px">      
         <% } %> 

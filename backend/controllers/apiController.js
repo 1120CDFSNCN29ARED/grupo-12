@@ -2,6 +2,7 @@ const db = require("../database/models");
 const fs = require("fs");
 const path = require("path");
 const imageFilePath = path.join(__dirname, "../public/img/");
+const bcrypt = require('bcrypt');
 
 const controller = {
   productsList: (req, res) => {
@@ -26,8 +27,7 @@ const controller = {
   },
 
   usersList: (req, res) => {
-    db.User.findAll({ attributes: ["user_fullname", "id", "user_email","user_birthdate" , "user_gender_id"] }).then((users) => {
-      console.log(users)
+    db.User.findAll({ attributes: ["user_fullname", "id", "user_email", "user_birthdate", "user_gender_id"] }).then((users) => {
       users.forEach(user => {
         user.dataValues.detail = `http://localhost:3001/api/user-detail/${user.id}`
       });
@@ -41,20 +41,41 @@ const controller = {
 
   userImage: (req, res) => {
     db.User.findByPk(req.params.id, { attributes: ["user_profileimage"] }).then(
-      (userImage) => {
+      (user) => {
         let image = fs.readFileSync(
-          imageFilePath + userImage.dataValues.user_profileimage
+          imageFilePath + user.dataValues.user_profileimage
         );
         res.status(200).send(image);
       }
     );
   },
 
+  userImageEncripted: (req, res) => {
+    console.log('-----HOLA-----');
+    db.User.findAll({ attributes: ['id'] }).then((users) => {
+      users.forEach(id => {
+        if (bcrypt.compareSync(id.dataValues.encripted_id.toString(), req.cookies.loggedUserId)) {
+          console.log('-----MATCH-----');
+          db.User.findByPk(id.dataValues.id, { attributes: ["user_profileimage"] }).then(
+            (userImage) => {
+              let image = fs.readFileSync(
+                imageFilePath + userImage.dataValues.user_profileimage
+              );
+              res.status(200).send(image);
+            }
+          );
+        }
+        console.log('-----NO MATCH-----');
+
+      });
+    })
+  },
+
   userDetail: (req, res) => {
     db.User.findByPk(req.params.id, {
       attributes: [
         "user_fullname",
-        "user_birthdate", 
+        "user_birthdate",
         "user_gender_id",
         "user_email",
       ],
@@ -89,8 +110,6 @@ const controller = {
           category.dataValues.size = 0
           products.forEach((product, i) => {
             if (product.product_category_id == category.id) {
-              console.log(product.product_category_id, category.id)
-              
               category.dataValues.size += 1;
             }
           });

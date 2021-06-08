@@ -1,12 +1,12 @@
 let db = require("../database/models")
 
-var cookieParser = require('cookie-parser')
+const bcrypt = require('bcrypt')
 
 module.exports = {
     detail: (req, res, next) => {
         db.Product.findByPk(req.params.id).then(
-            function(product) {
-                res.render('productdetail', {product: product, req: req});
+            function (product) {
+                res.render('productdetail', { product: product, req: req });
             }
         )
     },
@@ -15,7 +15,7 @@ module.exports = {
         console.log('Create Product')
         db.Category.findAll().then(
             (categories) => {
-                res.render('create-product', {categories: categories, req: req})
+                res.render('create-product', { categories: categories, req: req })
             }
         )
     },
@@ -33,7 +33,7 @@ module.exports = {
         }).then(
             res.redirect('/control-panel')
         );
-        
+
     },
 
     editProduct: (req, res) => {
@@ -42,9 +42,9 @@ module.exports = {
         let categoryRequest = db.Category.findAll();
 
         Promise.all([productRequest, genderRequest, categoryRequest])
-        .then(([product, genders, categories]) => {
-            res.render('edit-product', {product: product, genders: genders, categories: categories, req: req})
-        })
+            .then(([product, genders, categories]) => {
+                res.render('edit-product', { product: product, genders: genders, categories: categories, req: req })
+            })
     },
 
     updateProduct: (req, res) => {
@@ -53,7 +53,7 @@ module.exports = {
             product_price: req.body.product_price,
             product_discount: req.body.product_discount,
             product_description: req.body.product_description,
-            product_image: req.file.filename,
+            product_image: req.body.filename,
             product_gender_id: req.body.product_gender_id,
             product_category_id: req.body.product_category_id,
         }, {
@@ -64,7 +64,7 @@ module.exports = {
             res.redirect('/product/' + req.params.id)
         )
 
-        
+
     },
 
     deleteProduct: (req, res) => {
@@ -80,6 +80,9 @@ module.exports = {
 
 
     buyNow: (req, res) => {
+        if (req.cookies.loggedUserId == undefined || req.cookies.loggedUserId == 'false') {
+            res.redirect('/register-login')
+        }
         db.Product.findByPk(req.params.id)
             .then(product => {
                 let cart = req.cookies.shoppingCart
@@ -94,34 +97,45 @@ module.exports = {
     },
 
     addToCart: (req, res) => {
+        if (req.cookies.loggedUserId == undefined || req.cookies.loggedUserId == 'false') {
+            res.redirect('/register-login')
+        }
         db.Product.findByPk(req.params.id)
-        .then(product => {
-            let cart = req.cookies.shoppingCart
-            if (!cart) {
-                res.cookie('shoppingCart', product.id, { expire: new Date() + 10 })
-                res.redirect('/')
-            } else {
-                res.cookie('shoppingCart', cart + '-' + product.id)
-                res.redirect('/')
-            }
-        })
+            .then(product => {
+                let cart = req.cookies.shoppingCart
+                if (!cart) {
+                    res.cookie('shoppingCart', product.id, { expire: new Date() + 10 })
+                    res.redirect('/')
+                } else {
+                    res.cookie('shoppingCart', cart + '-' + product.id)
+                    res.redirect('/')
+                }
+            })
     },
 
     startPayment: (req, res) => {
-        let cart = req.cookies.shoppingCart;
-        let loggedUserId = req.cookies.loggedUserId;
-        console.log(typeof(loggedUserId))
-        if(!cart){
-            res.redirect('/')
-        } else if (loggedUserId != ''){
-            res.clearCookie('shoppingCart')
-            db.Sell.create({
-                buyer_id: loggedUserId,
-                products_id: cart,
-                sell_date: new Date()
-            }).then(
-                res.redirect('/')
-            )            
+        if (req.cookies.loggedUserId == undefined || req.cookies.loggedUserId == 'false') {
+            res.redirect('/register-login')
         }
+        let cart = req.cookies.shoppingCart;
+        db.User.findAll({ attributes: ['id'] }).then(usersId => {
+            usersId.forEach(id => {
+                if (bcrypt.compareSync(id.toString(), req.cookies.loggedUserId)) {
+                    let loggedUserId = id;
+                    if (!cart) {
+                        res.redirect('/')
+                    } else if (loggedUserId != '') {
+                        res.clearCookie('shoppingCart')
+                        db.Sell.create({
+                            buyer_id: loggedUserId,
+                            products_id: cart,
+                            sell_date: new Date()
+                        }).then(
+                            res.redirect('/')
+                        )
+                    }
+                }
+            });
+        })
     }
 }

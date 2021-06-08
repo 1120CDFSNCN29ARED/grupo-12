@@ -4,6 +4,10 @@ const sequelize = require('.')
 module.exports = (sequelize, dataTypes) => {
     const alias = 'User';
     const cols = {
+      encripted: {
+        allowNull: false,
+        type: dataTypes.STRING(500),
+      },
       user_fullname: {
         allowNull: false,
         type: dataTypes.STRING,
