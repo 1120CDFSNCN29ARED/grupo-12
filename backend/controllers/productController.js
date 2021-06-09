@@ -117,24 +117,27 @@ module.exports = {
             res.redirect('/register-login')
         }
         let cart = req.cookies.shoppingCart;
-        db.User.findAll({ attributes: ['id'] }).then(usersId => {
-            usersId.forEach(id => {
-                if (bcrypt.compareSync(id.toString(), req.cookies.loggedUserId)) {
-                    let loggedUserId = id;
-                    if (!cart) {
-                        res.redirect('/')
-                    } else if (loggedUserId != '') {
-                        res.clearCookie('shoppingCart')
-                        db.Sell.create({
-                            buyer_id: loggedUserId,
-                            products_id: cart,
-                            sell_date: new Date()
-                        }).then(
-                            res.redirect('/')
-                        )
-                    }
-                }
-            });
+
+        db.User.findByPk(req.cookies.loggedUserId, {attributes : ['id', 'encripted']}).then(user => {
+            let userId = user.dataValues.id;
+            let userEncripted = user.dataValues.encripted;
+            console.log(user, userId, userEncripted);
+            if (!cart) {
+                res.redirect('/')
+            } else if (userId != '' && req.cookies.encripted == userEncripted) {
+                res.clearCookie('shoppingCart')
+                console.log('COOKIE CLEARED'),
+                db.Sell.create({
+                    buyer_id: userId,
+                    products_id: cart,
+                    sell_date: new Date()
+                }).then(
+                    console.log('REDIRECTED'),
+                    res.redirect('/')
+                )
+            }else{
+                console.log('ERROR');
+            }
         })
     }
 }
