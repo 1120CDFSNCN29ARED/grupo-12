@@ -91,6 +91,19 @@
                     </div>
                 <% } %>
             </article>
+            <article class="container03">
+                <% for(let i=6; i<9; i++) {%>
+                    <div>
+                        <a href="/product/<%= products[i].id %>"><img src="/img/<%= products[i].product_image%>" alt="<% products[i].product_description %> "></a>
+                        <p>
+                            <%= products[i].product_name %>
+                        </p>
+                        <p>
+                            Precio: <%= products[i].product_price %>$
+                        </p>
+                    </div>
+                <% } %>
+            </article>
         </section>
     </main>
 
