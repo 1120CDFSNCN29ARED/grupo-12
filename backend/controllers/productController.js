@@ -41,9 +41,9 @@ module.exports = {
         let genderRequest = db.Gender.findAll();
         let categoryRequest = db.Category.findAll();
 
-        Promise.all([productRequest, productImageRequest, genderRequest, categoryRequest])
-            .then(([product, productImage, genders, categories]) => {
-                res.render('edit-product', { product: product, productImage, genders: genders, categories: categories, req: req })
+        Promise.all([productRequest, genderRequest, categoryRequest])
+            .then(([product, genders, categories]) => {
+                res.render('edit-product', { product: product, genders: genders, categories: categories, req: req })
             })
     },
 
