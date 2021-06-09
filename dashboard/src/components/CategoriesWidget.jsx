@@ -20,7 +20,6 @@ function CategoriesWidget() {
             <ul className="ul-prod">
                 {categories.length === 0 && <p>Cargando...</p>}
                 {
-                    console.log(categories),
                     categories.map((category, i) => {
                         return (
                             <li className="li-cat" key={i}>

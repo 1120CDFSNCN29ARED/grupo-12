@@ -12,8 +12,6 @@ function ProductDetail() {
             .then(response => response.json())
             .then(data => {
                 setDetail(data)
-
-
             })
             .catch(error => console.log(error, 'ERROR'));
     }, [])
@@ -22,7 +20,7 @@ function ProductDetail() {
         <div className="ul-prod">
             <div className="li-prod">
                 <h3 className="component-title">{detail.name}</h3>
-                <img src={`http://localhost:3001/api/product-image/${detail.id}`} width="200px" height="200px" />
+                <img src={`http://localhost:3001/api/product-image/${detail.id}`} width="200px" height="200px" alt="" />
                 <p>{detail.description}</p>
                 <p> ${detail.price}</p>
             </div>

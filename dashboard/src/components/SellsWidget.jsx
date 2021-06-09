@@ -19,8 +19,6 @@ function SellsWidget() {
             .catch(error => console.log(error, 'ERROR'));
     }, [])
 
-    //let productsId = sells.split('-')
-
     return (
         <div>
             <h3 className="component-title">Cantidad total de ventas: {sells.length}</h3>
@@ -53,9 +51,9 @@ function SellsWidget() {
                                                     </div>
                                                 )
                                             } else if (prodId === previous && prodId === next) {
-                                                repeat += 1                                                
-                                            }else if(prodId !== previous && prodId === next) {
-                                                repeat = 1 
+                                                repeat += 1
+                                            } else if (prodId !== previous && prodId === next) {
+                                                repeat = 1
                                             }
                                         })
                                     }

@@ -10,7 +10,6 @@ function LastProductInDb() {
         fetch('http://localhost:3001/api/products-list')
             .then(response => response.json())
             .then(data => {
-                //console.log(data)
                 setProducts(data.results)
             })
             .catch(error => console.log(error, 'ERROR'));

@@ -7,21 +7,14 @@ function LastUserInDb() {
     const [users, setUsers] = useState([]);
     const lastUser = users[users.length - 1]
 
-    let gender = ""
-
-
-
-
     useEffect(() => {
         fetch('http://localhost:3001/api/users-list')
             .then(response => response.json())
             .then(data => {
-                //console.log(data)
                 setUsers(data.results)
             })
             .catch(error => console.log(error, 'ERROR'));
     }, [])
-
 
 
     return (
@@ -42,8 +35,6 @@ function LastUserInDb() {
                 }
 
             </ul>
-
-
         </div>
     )
 

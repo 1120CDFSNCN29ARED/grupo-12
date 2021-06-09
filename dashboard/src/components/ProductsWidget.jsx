@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function ProductsWidget() {
@@ -10,7 +10,6 @@ function ProductsWidget() {
         fetch('http://localhost:3001/api/products-list')
             .then(response => response.json())
             .then(data => {
-                //console.log(data)
                 setProducts(data.results)
             })
             .catch(error => console.log(error, 'ERROR'));
@@ -27,15 +26,13 @@ function ProductsWidget() {
                             <li className="li-prod" key={i}>
                                 <Link className="prod-title" to={`/ProductDetail/${product.id}`}>
                                     <h3>{product.product_name}</h3>
-                                    <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px" />
+                                    <img src={`http://localhost:3001/api/product-image/${product.id}`} width="200px" height="200px" alt="" />
                                 </Link>
                             </li>
                         )
                     })
                 }
             </ul>
-
-
         </div>
     )
 
