@@ -30,9 +30,10 @@ CREATE TABLE products (
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    encripted VARCHAR(500) NOT NULL,
     user_fullname VARCHAR (50) NOT null,
     user_birthdate DATE NOT null,
-    user_profileimage VARCHAR (500) NOT null,
+    user_profileimage VARCHAR(500),
     user_adress VARCHAR (100) NOT null,
     user_gender_id INT UNSIGNED NOT null,
     user_email VARCHAR (100) NOT null,
@@ -55,6 +56,15 @@ CREATE TABLE kits (
     FOREIGN KEY (producto2) REFERENCES products(id),
     FOREIGN KEY (producto3) REFERENCES products(id),
     FOREIGN KEY (producto4) REFERENCES products(id)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE sells (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    buyer_id INT UNSIGNED NOT NULL,
+    products_id VARCHAR(50) NOT NULL,
+    sell_date DATE NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (buyer_id) REFERENCES users(id)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `tao_deportes`.`genders` (`id`, `gender_name`) VALUES ('1', 'Male');
