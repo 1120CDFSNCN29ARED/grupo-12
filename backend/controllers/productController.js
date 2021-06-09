@@ -1,5 +1,4 @@
 let db = require("../database/models")
-
 const bcrypt = require('bcrypt')
 
 module.exports = {

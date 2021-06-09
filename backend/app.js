@@ -10,7 +10,8 @@ const loggedCheck = require('./custom_middlewares/loggedCheck')
 
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
-const apiRouter = require('./routes/api')
+const userRouter = require('./routes/user');
+const apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', mainRouter);
 app.use('/product', productRouter);
+app.use('/user', userRouter);
 app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler

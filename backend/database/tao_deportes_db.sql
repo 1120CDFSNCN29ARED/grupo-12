@@ -71,6 +71,9 @@ INSERT INTO `tao_deportes`.`genders` (`id`, `gender_name`) VALUES ('1', 'Male');
 INSERT INTO `tao_deportes`.`genders` (`id`, `gender_name`) VALUES ('2', 'Female');
 INSERT INTO `tao_deportes`.`genders` (`id`, `gender_name`) VALUES ('3', 'Unisex');
 
+INSERT INTO `tao_deportes`.`users` (`id`, `encripted`, `user_fullname`, `user_birthdate`, `user_profileimage`, `user_adress`, `user_gender_id`, `user_email`, `user_password`) VALUES ('1', '2b$04$6tOLfoVU', 'Tano Abratti', '1999-08-23', 'user_profileimage-1623247152052.png', 'micasa 123', '1', 'abrattitano@gmail.com', '$2b$10$MC3PZNdCxEjtY7zPA.Vu5e/gn83VYihcWZlPteLzkmkCgdogViwSi');
+INSERT INTO `tao_deportes`.`users` (`id`, `encripted`, `user_fullname`, `user_birthdate`, `user_profileimage`, `user_adress`, `user_gender_id`, `user_email`, `user_password`)VALUES(2, '2b$04$hwhL12PU', 'Renzo Cagnola', '1999-09-11', 'user_profileimage-1623247467973.jpg', 'calle falsa 123', 1, 'rencagnola99@gmail.com', '$2b$10$wzJjq2ZBYcLE./1EgOYjaeXBOcF87TPGHG0iPYyIESubFaYGDNWka');
+
 INSERT INTO `tao_deportes`.`categories` (`id`, `category_name`) VALUES ('1', 'Futbol');
 INSERT INTO `tao_deportes`.`categories` (`id`, `category_name`) VALUES ('2', 'Basketball');
 INSERT INTO `tao_deportes`.`categories` (`id`, `category_name`) VALUES ('3', 'Volleyball');

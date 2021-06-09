@@ -36,11 +36,38 @@
                     <img src="/img/<%= products[i].product_image %>" alt="">
                     <div class="product-forms">
                         <form action="/product/edit/<%= products[i].id %>" method="GET">
-                            <button type="submit">--Editar--</button>
+                            <button type="submit">Editar</button>
                         </form>
                         <form action="/product/delete/<%= products[i].id %>" method="POST">
-                            <button type="submit">--Borrar--</button>
+                            <button type="submit">Borrar</button>
                         </form>
+                    </div>
+                </li>
+
+            <% } %>
+
+        </ul>
+
+        <hr>
+
+        <ul class="products">
+            <% for( let i=0; i < users.length; i++ ) { %>
+
+                <li class="product-name">
+                    <a href="/user/<%=users[i].id%>">
+                        <%= users[i].user_fullname %>
+                    </a>
+                    <img src="/img/<%= users[i].user_profileimage %>" alt="">
+                    <div class="product-forms">
+                        <form action="/user/edit/<%= users[i].id %>" method="GET">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <% if(!adminList.includes(users[i].id.toString() )) { %>
+                            <%console.log('USUARIO  NO ADMIN');%> 
+                            <form action="/user/delete/<%= users[i].id %>" method="POST">
+                                <button type="submit">Borrar</button>
+                            </form>
+                        <% } %>                        
                     </div>
                 </li>
 
