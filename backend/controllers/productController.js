@@ -1,5 +1,6 @@
-let db = require("../database/models")
+const db = require("../database/models")
 const bcrypt = require('bcrypt')
+
 
 module.exports = {
     detail: (req, res, next) => {
@@ -35,14 +36,14 @@ module.exports = {
 
     },
 
-    editProduct: (req, res) => {
+    editProduct: async (req, res) => {
         let productRequest = db.Product.findByPk(req.params.id)
         let genderRequest = db.Gender.findAll();
         let categoryRequest = db.Category.findAll();
 
-        Promise.all([productRequest, genderRequest, categoryRequest])
-            .then(([product, genders, categories]) => {
-                res.render('edit-product', { product: product, genders: genders, categories: categories, req: req })
+        Promise.all([productRequest, productImageRequest, genderRequest, categoryRequest])
+            .then(([product, productImage, genders, categories]) => {
+                res.render('edit-product', { product: product, productImage, genders: genders, categories: categories, req: req })
             })
     },
 
