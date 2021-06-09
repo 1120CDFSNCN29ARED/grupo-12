@@ -8,9 +8,9 @@ function UserDetail() {
 
     let gender = ""
 
-    if (detail.user_gender_id = 1) {
+    if (detail.user_gender_id == 1) {
         gender = "Masculino"
-    } else if (detail.user_gender_id = 2) {
+    } else if (detail.user_gender_id == 2) {
         gender = "Femenino"
     } else {
         gender = "Unisex"

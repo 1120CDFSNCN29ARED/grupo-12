@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function LastUserInDb() {
 
     const [users, setUsers] = useState([]);
     const lastUser = users[users.length - 1]
-    console.log(lastUser);
 
     let gender = ""
-    if (users.user_gender_id = 1) {
-        gender = "Masculino"
-    } else if (users.user_gender_id = 2) {
-        gender = "Femenino"
-    } else {
-        gender = "Unisex"
-    }
 
 
 
@@ -40,11 +33,10 @@ function LastUserInDb() {
                     users.length > 0 &&
 
                     <div className="li-prod" >
-                        <h3>{lastUser.user_fullname}</h3>
-                        <img src={`http://localhost:3001/api/user-image/${lastUser.id}`} width="200px" alt="" />
-                        <p>Genero: {gender}</p>
-                        <p>Fecha de nacimiento: {lastUser.user_birthdate}</p>
-                        <p>Email: {lastUser.user_email}</p>
+                        <Link className="prod-title" to={`/UserDetail/${lastUser.id}`}>
+                            <h3>{lastUser.user_fullname}</h3>
+                            <img src={`http://localhost:3001/api/user-image/${lastUser.id}`} width="200px" alt="" />
+                        </Link>
                     </div>
 
                 }

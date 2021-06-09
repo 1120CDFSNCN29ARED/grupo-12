@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 
 function LastProductInDb() {
@@ -24,10 +25,10 @@ function LastProductInDb() {
                     products.length > 0 &&
 
                     <li className="li-prod" >
-                        <h3>{lastProduct.product_name}</h3>
-                        <img src={`http://localhost:3001/api/product-image/${lastProduct.id}`} width="200px" alt="" />
-                        <p>{lastProduct.product_description}</p>
-                        <p> ${lastProduct.product_price}</p>
+                        <Link className="prod-title" to={`/ProductDetail/${lastProduct.id}`}>
+                            <h3>{lastProduct.product_name}</h3>
+                            <img src={`http://localhost:3001/api/product-image/${lastProduct.id}`} width="200px" alt="" />
+                        </Link>
                     </li>
 
                 }
